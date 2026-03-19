@@ -1,10 +1,15 @@
 # Humanizer Czech
 
+![Version](https://img.shields.io/badge/version-2.0.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 ![Czech Humanizer - Proven results](assets/czech-humanizer.png)
 
-**Přepiš český text tak, jako by ho psal člověk.**
+
+## Přepiš český text tak, jako by ho psal člověk.
 
 První pečlivě sestavený humanizer skill zaměřený specificky na český jazyk. Detekuje 27 vzorců typických pro AI-generovanou češtinu a přepisuje text tak, aby zněl přirozeně a co nejvíce lidsky. 🧑‍🏫
+
 
 ## 4 styly výstupu
 
@@ -13,9 +18,10 @@ První pečlivě sestavený humanizer skill zaměřený specificky na český ja
 - **Přátelský** - teplý tón, pro blogy, newslettery, sociální sítě
 - **Konverzační** - neformální, přirozený, jako bys psal kámošoj
 
+
 ## Co to dělá
 
-- **Zakazuje em dash (—)** - nahrazuje ho běžnou pomlčkou (-), kterou reálně píše každý Čech
+- **Zakazuje em dash (—)** - nahrazuje ho běžnou pomlčkou (-)
 - **Identifikuje české AI klišé** ("V dnešní době", "Je důležité zdůraznit", "Závěrem lze konstatovat"...)
 - **Detekuje anglický slovosled**, kalky, nominalizaci a další česko-specifické vzorce
 - **Odstraňuje nafouklý jazyk**, trpný rod, vágní atribuce
@@ -25,7 +31,9 @@ První pečlivě sestavený humanizer skill zaměřený specificky na český ja
 
 ## Smrt em dashi! 🥳
 
-Znáte ten dlouhý pomlčkový znak **—** co je doslova v každém AI textu? Ten, co žádný "normální" Čech NIKDY v životě nenapíše, protože na klávesnici prostě zmáčkne pomlčku "-"? Tak ten už ve svém textu nikdy neuvidíte. Je to na první pohled nejviditelnější znak AI generovaného textu a je úplně všude. Tohle je první humanizer, který ho řeší natvrdo jako globální pravidlo.
+Znáte ten dlouhý pomlčkový znak **—** co je doslova v každém AI textu? Ten, co žádný "normální" Čech NIKDY v životě nenapíše, protože na klávesnici prostě zmáčkne pomlčku "-"? Tak ten už ve svém textu nikdy neuvidíte. 
+Je to na první pohled nejviditelnější znak AI generovaného textu a je úplně všude. Tohle je první humanizer, který ho řeší natvrdo jako globální pravidlo.
+
 
 ## Příklad
 
@@ -34,6 +42,7 @@ Znáte ten dlouhý pomlčkový znak **—** co je doslova v každém AI textu? T
 
 **Výstup (styl: přátelský):**
 > AI v podnikání řeší firmy teď, ne za pět let. Gartner říká, že ji testuje 65 % středních firem v Evropě, ale upřímně - většina z nich teprve zkouší, co to vlastně umí.
+
 
 ## 27 detekovaných vzorců
 
@@ -67,14 +76,17 @@ Znáte ten dlouhý pomlčkový znak **—** co je doslova v každém AI textu? T
 | 26 | Sendvičová struktura | Úvod - 3 body - závěr vždy |
 | 27 | Tautologická zdvojení | "různé a rozmanité", "efektivní a účinné" |
 
-> **Výsledky detektorů:** Vzali jsme extra těžce AI-generovaný text, u kterého všechny detektory hlásily, že je na 100 % generovaný AI. Prohnali jsme ho tímto humanizerem a nechali otestovat top detektory. Výsledek? 
-Copyleaks: 0% AI. ✅
-GPTZero: "entirely human". ✅
-Grammarly: 0% AI. ✅
+
+> [!NOTE]
+> **Výsledky detektorů:** Vzali jsme extra těžce AI-generovaný text, u kterého všechny detektory hlásily, že je na 100 % generovaný AI. Prohnali jsme ho tímto czech humanizerem a nechali otestovat top detektory. Výsledek?
+> Copyleaks: 0% AI. ✅
+> GPTZero: "entirely human". ✅
+> Grammarly: 0% AI. ✅
+
 
 ---
 
-## Instalace
+## 🔧 Instalace
 
 ### Claude Code (doporučeno)
 
@@ -99,6 +111,8 @@ Pak v Claude Code použij `/humanizer-czech` následovaný textem k humanizaci.
 3. Vlož jako systémový prompt (system instructions) nebo na začátek konverzace
 4. Pošli text k humanizaci
 
+---
+
 ## Poděkování
 
 Inspirováno projektem [humanizer](https://github.com/blader/humanizer) od [@blader](https://github.com/blader) - původní anglická verze s 10k+ stars. Česká verze přidává 27 vzorců specifických pro český jazyk a systém 4 stylů výstupu.
@@ -106,6 +120,8 @@ Inspirováno projektem [humanizer](https://github.com/blader/humanizer) od [@bla
 Vychází také z [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing).
 
 Vzorce 17-27 identifikovány cross-referencí výstupů z Claude, ChatGPT a Gemini.
+
+---
 
 ## Licence
 
