@@ -73,9 +73,11 @@ Pak v Claude Code použij `/humanizer-czech` následovaný textem k humanizaci.
 - **Přátelský** — teplý tón, pro blogy, newslettery, sociální sítě
 - **Konverzační** — neformální, jako bys psal kamarádovi
 
-## Inspirace
+## Poděkování
 
-Vychází z [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) a projektu [blader/humanizer](https://github.com/blader/humanizer). Rozšířeno o vzorce specifické pro český jazyk.
+Inspirováno projektem [humanizer](https://github.com/blader/humanizer) od [@blader](https://github.com/blader) — původní anglická verze s 10k+ stars 🌟. Česká verze přidává 16 vzorců specifických pro český jazyk a systém 4 stylů výstupu.
+
+Vychází také z [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing).
 
 ## Licence
 
