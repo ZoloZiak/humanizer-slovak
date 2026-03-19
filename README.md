@@ -31,7 +31,7 @@ První pečlivě sestavený humanizer skill zaměřený specificky na český ja
 
 ## Smrt em dashi! 🥳
 
-Znáte ten dlouhý pomlčkový znak **—** co je doslova v každém AI textu? Ten, co žádný "normální" Čech NIKDY v životě nenapíše, protože na klávesnici prostě zmáčkne pomlčku "-"? Tak ten už ve svém textu nikdy neuvidíte. 
+Znáte ten dlouhý pomlčkový znak **—** co je doslova v každém AI textu? Ten, co žádný "normální" Čech NIKDY v životě nenapíše, protože na klávesnici prostě zmáčkne pomlčku "-"? Tak ten už ve svém textu nikdy neuvidíte.<br>
 Je to na první pohled nejviditelnější znak AI generovaného textu a je úplně všude. Tohle je první humanizer, který ho řeší natvrdo jako globální pravidlo.
 
 
@@ -78,9 +78,9 @@ Je to na první pohled nejviditelnější znak AI generovaného textu a je úpln
 
 
 > [!NOTE]
-> **Výsledky detektorů:** Vzali jsme extra těžce AI-generovaný text, u kterého všechny detektory hlásily, že je na 100 % generovaný AI. Prohnali jsme ho tímto czech humanizerem a nechali otestovat top detektory. Výsledek?
-> Copyleaks: 0% AI. ✅
-> GPTZero: "entirely human". ✅
+> **Výsledky detektorů:** Vzali jsme extra těžce AI-generovaný text, u kterého všechny detektory hlásily, že je na 100 % generovaný AI. Prohnali jsme ho tímto czech humanizerem a nechali otestovat top detektory. Výsledek?<br>
+> Copyleaks: 0% AI. ✅<br>
+> GPTZero: "entirely human". ✅<br>
 > Grammarly: 0% AI. ✅
 
 
