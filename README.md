@@ -2,11 +2,12 @@
 
 **Odstraň znaky AI-generovaného psaní z českého textu.**
 
-První humanizer skill zaměřený specificky na český jazyk. Detekuje 16 vzorců typických pro AI-generovanou češtinu a přepisuje text tak, aby zněl přirozeně a lidsky.
+První humanizer skill zaměřený specificky na český jazyk. Detekuje 27 vzorců typických pro AI-generovanou češtinu a přepisuje text tak, aby zněl přirozeně a lidsky.
 
 ## Co to dělá
 
 - Identifikuje české AI klišé ("V dnešní době", "Je důležité zdůraznit", "Závěrem lze konstatovat"...)
+- Detekuje anglický slovosled, kalky, nominalizaci a další česko-specifické vzorce
 - Odstraňuje nafouklý jazyk, trpný rod, vágní atribuce
 - Přidává osobnost a autentický hlas
 - Dual-pass systém: přepíše → zkontroluje → opraví znovu
@@ -45,7 +46,7 @@ Pak v Claude Code použij `/humanizer-czech` následovaný textem k humanizaci.
 **Výstup (styl: přátelský):**
 > AI v podnikání řeší firmy teď, ne za pět let. Gartner říká, že ji testuje 65 % středních firem v Evropě, ale upřímně — většina z nich teprve zkouší, co to vlastně umí.
 
-## 16 detekovaných vzorců
+## 27 detekovaných vzorců
 
 | # | Vzorec | Příklad |
 |---|--------|---------|
@@ -59,12 +60,23 @@ Pak v Claude Code použij `/humanizer-czech` následovaný textem k humanizaci.
 | 8 | Vágní atribuce | "Odborníci se shodují", "Studie ukazují" |
 | 9 | Nadužívání pomlček | Přehnané em dash (—) |
 | 10 | Přehnané formátování | Tučné nadpisy v seznamech |
-| 11 | Emoji dekorace | 🚀💡✅ v nadpisech |
+| 11 | Emoji dekorace | Emoji v nadpisech |
 | 12 | Chatbot artefakty | "Skvělá otázka!", "Rád pomohu" |
 | 13 | Synonymické kolečko | Společnost/firma/podnik/korporace |
 | 14 | Falešné rozsahy | "Od startupů po korporace" |
 | 15 | Generické závěry | "Budoucnost vypadá slibně" |
 | 16 | Výplňové fráze | "Za účelem dosažení", "Vzhledem k tomu, že" |
+| 17 | Anglický slovosled | Porušení aktuálního členění větného |
+| 18 | Monotónní rytmus | Všechny věty podobné délky (nízká burstiness) |
+| 19 | Přivlastňovací zájmena | "Otevřel své oči a vzal svůj telefon" |
+| 20 | Anglické kalky | "Pojďme se ponořit do", "na denní bázi" |
+| 21 | Nadměrná nominalizace | "Došlo k realizaci implementace" |
+| 22 | Meta-komentáře | "V tomto článku se podíváme na..." |
+| 23 | Falešná vyváženost | "Na jedné straně... na druhé straně..." |
+| 24 | Ukazovací zájmena | "Tento problém... Tato situace... Tyto faktory..." |
+| 25 | Copula avoidance | "Představuje klíčový nástroj" místo "je" |
+| 26 | Sendvičová struktura | Úvod – 3 body – závěr vždy |
+| 27 | Tautologická zdvojení | "různé a rozmanité", "efektivní a účinné" |
 
 ## 4 styly výstupu
 
@@ -75,9 +87,11 @@ Pak v Claude Code použij `/humanizer-czech` následovaný textem k humanizaci.
 
 ## Poděkování
 
-Inspirováno projektem [humanizer](https://github.com/blader/humanizer) od [@blader](https://github.com/blader) — původní anglická verze s 10k+ stars 🌟. Česká verze přidává 16 vzorců specifických pro český jazyk a systém 4 stylů výstupu.
+Inspirováno projektem [humanizer](https://github.com/blader/humanizer) od [@blader](https://github.com/blader) — původní anglická verze s 10k+ stars. Česká verze přidává 27 vzorců specifických pro český jazyk a systém 4 stylů výstupu.
 
 Vychází také z [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing).
+
+Vzorce 17-27 identifikovány cross-referencí výstupů z Claude, ChatGPT a Gemini.
 
 ## Licence
 
@@ -85,4 +99,4 @@ Vychází také z [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki
 
 ---
 
-Vytvořeno s pomocí [Claude Code](https://claude.ai/claude-code) 🤖→🧑
+Vytvořeno s pomocí [Claude Code](https://claude.ai/claude-code)

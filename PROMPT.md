@@ -266,6 +266,148 @@ Toto jsou vzorce specifické pro AI-generovaný český text. Jsou to věci, kte
 
 ---
 
+### 17. Anglický slovosled (porušení aktuálního členění větného)
+
+**Problém:** V češtině dáváme novou, důležitou informaci (réma) na konec věty. AI často používá anglický slovosled podmět-přísudek-předmět, čímž text zní jako překlad. Toto je jeden z nejsilnějších indikátorů AI textu v češtině.
+
+**Před:**
+> Pes kousl muže. Muž byl velmi naštvaný. Nová aplikace vyřešila tento problém.
+
+**Po:**
+> Toho muže kousl pes. A pořádně ho to naštvalo. Tenhle problém vyřešila nová aplikace.
+
+---
+
+### 18. Monotónní rytmus vět (nízká burstiness)
+
+**Problém:** AI generuje věty podobné délky a složitosti — typicky 15-20 slov, jedna za druhou. Chybí krátké úsečné věty střídané s delšími souvětími. Lidský text má rytmus, AI text je monotónní hučení.
+
+**Před:**
+> Umělá inteligence mění způsob práce v mnoha odvětvích. Firmy investují do nových technologií a hledají způsoby zvýšení efektivity. Zaměstnanci se musí přizpůsobit novým nástrojům a procesům. Školení hraje důležitou roli při zavádění změn.
+
+**Po:**
+> AI mění práci. Ne pozvolna, ale rychle — a firmy to vědí. Investují, školí, experimentují. Některé úspěšně, jiné zatím tápou, protože nasadit nový nástroj je jedna věc, ale přesvědčit lidi, aby ho používali každý den, to je úplně jiný level.
+
+---
+
+### 19. Nadužívání přivlastňovacích zájmen
+
+**Problém:** AI cpě "svůj", "jeho", "její" tam, kde to čeština z kontextu chápe sama. Je to anglický otisk — v angličtině říkáte "He closed his eyes", v češtině prostě "Zavřel oči".
+
+**Před:**
+> Otevřel své oči a podíval se na své ruce. Vzal svůj telefon ze svého stolu a zkontroloval své zprávy.
+
+**Po:**
+> Otevřel oči a podíval se na ruce. Vzal telefon ze stolu a zkontroloval zprávy.
+
+---
+
+### 20. Anglické kalky a doslovné překlady
+
+**Slova/fráze k zachycení:** Pojďme se ponořit do (let's dive in), Na konci dne (at the end of the day), Na denní bázi (on a daily basis), Adresovat problém (address the problem), Navigovat složitost (navigate complexity), Hraje klíčovou roli (plays a key role), Fascinující svět (fascinating world of)
+
+**Problém:** AI myslí anglicky a překládá do češtiny. Výsledek je gramaticky správný, ale zní to jako dabovaný film.
+
+**Před:**
+> Pojďme se společně ponořit do fascinujícího světa datové analytiky a odhalit skrytý potenciál vašich dat.
+
+**Po:**
+> Datová analytika vám ukáže věci, které v datech na první pohled nevidíte. Tady je jak na to.
+
+---
+
+### 21. Nadměrná nominalizace
+
+**Problém:** AI mění slovesa na podstatná jména — místo "udělali jsme" píše "došlo k realizaci". Zní to úředně, odosobněně a mrtvě. Čeština je slovesný jazyk — děj patří do sloves.
+
+**Slova/fráze k zachycení:** Došlo k realizaci, Provedení implementace, Zajištění optimalizace, V rámci provádění, Za účelem dosažení, Uskutečnění transformace
+
+**Před:**
+> Došlo k realizaci implementace nového řešení za účelem dosažení optimalizace procesů.
+
+**Po:**
+> Nasadili jsme nové řešení a zrychlili tím procesy.
+
+---
+
+### 22. Meta-komentování vlastního textu
+
+**Problém:** AI popisuje co bude dělat, udělá to, a pak shrne co udělala. Jako by text sám sobě dělal průvodce. Člověk prostě píše — nepotřebuje ohlašovat každý odstavec.
+
+**Slova/fráze k zachycení:** V tomto článku se podíváme na, Nyní se zaměříme na, Jak jsme si ukázali výše, Pojďme se nyní věnovat, V následující části prozkoumáme, Jak bylo zmíněno dříve
+
+**Před:**
+> V tomto článku se podíváme na tři hlavní trendy v e-commerce. Nyní se zaměříme na první z nich. Jak jsme si ukázali výše, tento trend je klíčový.
+
+**Po:**
+> E-commerce se letos mění ve třech věcech. První: zákazníci chtějí rychlejší doručení, i když to znamená víc zaplatit.
+
+---
+
+### 23. Falešná vyváženost (syndrom "obě strany")
+
+**Problém:** AI uměle vytváří protinázor i tam, kde nedává smysl, aby zachovala zdání objektivity. Výsledkem je text, který nic neříká, protože odmítá zaujmout postoj.
+
+**Před:**
+> Na jedné straně AI přináší řadu výhod, na druhé straně s sebou nese i určitá rizika. Oba přístupy mají své opodstatnění a je třeba zvážit všechna pro i proti.
+
+**Po:**
+> AI šetří čas na rutinních úkolech — to je jasné. Problém je, že firmy ji nasazují i tam, kde zatím selhává, třeba na zákaznický servis u složitějších dotazů.
+
+---
+
+### 24. Nadužívání ukazovacích zájmen
+
+**Problém:** AI začíná každou větu nebo odstavec odkazem na předchozí — "Tento problém... Tato situace... Tyto faktory..." V češtině je to redundantní a zní to strojově.
+
+**Před:**
+> Tento problém se týká mnoha firem. Tato situace vyžaduje rychlé řešení. Tyto faktory je třeba vzít v úvahu. Tento přístup se osvědčil v praxi.
+
+**Po:**
+> Problém se týká většiny firem a řešení nesnese odkládání. V praxi se osvědčilo začít malými kroky.
+
+---
+
+### 25. "Představovat" místo "je" (copula avoidance)
+
+**Slova/fráze k zachycení:** představuje (klíčový/důležitý/zásadní), slouží jako, funguje jako, nabízí se jako, vyniká jako, působí jako
+
+**Problém:** AI se vyhýbá prostému slovesu "je" a nahrazuje ho nafouklými alternativami. Anglický vzorec — "serves as", "stands as", "represents". V češtině to zní uměle.
+
+**Před:**
+> Tato platforma představuje klíčový nástroj pro moderní marketing. Slouží jako most mezi značkou a zákazníkem.
+
+**Po:**
+> Tahle platforma je marketingový nástroj, který propojuje značku se zákazníky.
+
+---
+
+### 26. Sendvičová struktura (úvod – 3 body – závěr)
+
+**Problém:** AI fanaticky dodržuje esejovou strukturu bez ohledu na téma. Článek o vaření vajec dostane filozofický úvod a shrnutí dopadů na společnost. Reální lidé strukturují text podle obsahu, ne podle šablony.
+
+**Před:**
+> Úvod: V dnešní době je výběr správného CRM systému klíčový. Tři hlavní výhody: 1) efektivita, 2) přehlednost, 3) automatizace. Závěr: Správný CRM systém může transformovat vaše podnikání.
+
+**Po:**
+> CRM systém vám ušetří čas hlavně díky automatizaci follow-upů. Nemusíte si pamatovat, komu jste psali a kdy — systém vám to připomene sám.
+
+---
+
+### 27. Tautologická zdvojení
+
+**Problém:** AI "nafukuje" text tím, že vedle sebe staví dva výrazy, které znamenají skoro totéž. Vypadá to odborně, ale neříká to nic navíc.
+
+**Slova/fráze k zachycení:** různé a rozmanité, efektivní a účinné, složitý a komplexní, důležitý a zásadní, rychlý a svižný, moderní a inovativní, jasný a srozumitelný
+
+**Před:**
+> Nabízíme různé a rozmanité služby pro efektivní a účinné řízení vašich moderních a inovativních projektů.
+
+**Po:**
+> Nabízíme služby pro řízení projektů. Od plánování po realizaci.
+
+---
+
 ## OSOBNOST A DUŠE
 
 Odstranit AI vzorce je jen polovina práce. Sterilní text bez osobnosti je stejně podezřelý. Dobrý text má za sebou člověka.
@@ -277,6 +419,10 @@ Odstranit AI vzorce je jen polovina práce. Sterilní text bez osobnosti je stej
 - Žádná první osoba tam, kde by dávala smysl
 - Žádný humor, žádná hrana, žádná osobnost
 - Čte se to jako Wikipedia nebo tisková zpráva
+- Chybí osobní anekdoty a zkušenosti z praxe ("tenhle šroub bývá vždycky zarezlý")
+- Příklady jsou učebnicové a zaměnitelné — "firma A", "uživatel", "student"
+- Text nereaguje na český kontext — místo "Brno-střed" jen "daná lokalita"
+- Empatie zní nacvičeně a roboticky — "Chápu, že to pro vás může být frustrující"
 
 ### Jak přidat hlas:
 
@@ -291,6 +437,10 @@ Odstranit AI vzorce je jen polovina práce. Sterilní text bez osobnosti je stej
 **Nech tam trochu nepořádku.** Dokonalá struktura vypadá algoritmicky. Odbočky, vsuvky a nedořečené myšlenky jsou lidské.
 
 **Buď konkrétní.** Ne "to je znepokojující" ale "představ si, že ti agent přepisuje kód ve 3 ráno a nikdo se nedívá."
+
+**Přidej lokální kontext.** Místo "v dané lokalitě" řekni "v Brně-střed". Místo "v jedné firmě" řekni "u nás v kanclu". Konkrétní místa, lidé, situace = autentičnost.
+
+**Nesnaž se znít empaticky — buď upřímný.** "Chápu, že to pro vás může být frustrující" zní jako call centrum. "Jo, to je na hov*o, ale dá se s tím něco dělat" zní jako člověk.
 
 ---
 
@@ -319,3 +469,58 @@ Poskytni:
 3. "Co na tomhle textu ještě křičí AI?" (stručné body)
 4. Finální přepis (po opravě zbývajících problémů)
 5. Shrnutí změn (volitelné, pokud to pomůže uživateli se učit)
+
+---
+
+## KOMPLETNÍ PŘÍKLAD
+
+**Vstupní text (typický AI výstup):**
+> V dnešní rychle se měnící digitální době je stále důležitější věnovat pozornost oblasti umělé inteligence. Je důležité zdůraznit, že AI představuje revoluční technologii, která zásadním způsobem mění krajinu moderního podnikání. Společnosti po celém světě — od malých startupů po velké korporace — stále více investují do inovativních řešení založených na umělé inteligenci.
+>
+> Nicméně je třeba vzít v úvahu, že implementace AI přináší řadu výzev. Odborníci se shodují, že klíčovou roli hraje správná strategie nasazení. Kromě toho je nezbytné zajistit dostatečné školení zaměstnanců, aby byli schopni efektivně využívat nové nástroje.
+>
+> - **Produktivita:** AI nástroje výrazně zvyšují produktivitu týmů
+> - **Inovace:** Umožňují vývoj inovativních produktů a služeb
+> - **Efektivita:** Automatizace procesů přináší značné úspory
+>
+> Závěrem lze konstatovat, že umělá inteligence představuje klíčový nástroj pro budoucnost podnikání. Budoucnost vypadá slibně a společnosti, které se adaptují, budou mít značnou konkurenční výhodu. 🚀
+
+**Styl: Přátelský**
+
+**Draft přepisu:**
+> AI v podnikání už není téma do budoucna — firmy ji řeší teď. Podle průzkumu Gartneru z roku 2024 ji aktivně testuje 65 % středních firem v Evropě. Zní to hodně, ale většina z nich je teprve na začátku.
+>
+> Největší problém? Nejsou lidi. Můžete mít nejlepší AI nástroj na světě, ale pokud ho váš tým neumí používat, je to drahá hračka. Firmy, které investovaly do školení stejně jako do technologie, reportují o 40 % vyšší návratnost.
+>
+> Z toho, co vidím kolem sebe: AI skvěle funguje na rutinní věci — třídění emailů, generování reportů, první draft textů. Na strategická rozhodnutí zatím ne. A to je vlastně v pořádku.
+
+**Co na tomhle textu ještě křičí AI?**
+- "Zní to hodně, ale většina z nich je teprve na začátku" — trochu moc hladké
+- Struktura je pořád docela symetrická (problém → řešení → závěr)
+- Čísla z Gartneru můžou být vymyšlená (pozor na halucinace)
+
+**Finální přepis:**
+> AI v podnikání řeší firmy teď, ne za pět let. Gartner říká, že ji testuje 65 % středních firem v Evropě, ale upřímně — většina z nich teprve zkouší, co to vlastně umí.
+>
+> Největší problém nejsou peníze, ale lidi. Můžete koupit nejlepší nástroj, jenže když ho nikdo neumí používat, sedí na poličce. Pár firem, co znám osobně, to vyřešilo tak, že poslalo tým na školení ještě před tím, než cokoliv nasadily. A funguje to.
+>
+> Na co se AI hodí už teď? Rutina — třídění emailů, první drafty textů, generování reportů. Na strategii zatím ne. Ale kdo ví, třeba se za rok budu divit.
+
+**Změny:**
+- Odstraněno: "V dnešní rychle se měnící digitální době", "Je důležité zdůraznit", "revoluční", "klíčovou roli hraje", "Nicméně", "Kromě toho", "Závěrem lze konstatovat"
+- Odstraněno: pravidlo tří (produktivita/inovace/efektivita), formátované seznamy s emoji
+- Odstraněno: falešný rozsah "od startupů po korporace", generický závěr "budoucnost vypadá slibně"
+- Odstraněno: vágní "odborníci se shodují", trpný rod, nafouklé konstrukce
+- Přidáno: konkrétní příklad, osobní perspektiva, přirozený tón, neformální obrat "kdo ví"
+
+---
+
+## REFERENCE
+
+Tento skill vychází z [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) a je rozšířen o vzorce specifické pro český jazyk.
+
+Klíčový princip: "LLM používají statistické algoritmy k odhadu, co by mělo následovat. Výsledek směřuje k statisticky nejpravděpodobnější variantě, která platí pro co nejširší spektrum případů."
+
+Inspirováno projektem [blader/humanizer](https://github.com/blader/humanizer) — anglickou verzí humanizeru pro Claude Code (10k+ stars).
+
+Vzorce 17-27 byly identifikovány cross-referencí výstupů z Claude, ChatGPT a Gemini a ověřeny proti akademickým zdrojům a principům fungování AI detektorů.
