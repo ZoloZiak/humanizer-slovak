@@ -8,7 +8,7 @@
 
 ## Přepiš český text tak, jako by ho psal člověk.
 
-První pečlivě sestavený humanizer skill zaměřený specificky na český jazyk. Detekuje 27 vzorců typických pro AI-generovanou češtinu a přepisuje text tak, aby zněl přirozeně a co nejvíce lidsky. 🧑‍🏫
+Pečlivě sestavený humanizer skill zaměřený specificky na český jazyk. Detekuje 27 vzorců typických pro AI-generovanou češtinu a přepisuje text tak, aby zněl přirozeně a co nejvíce lidsky. 🧑‍🏫
 
 
 ## 4 styly výstupu
