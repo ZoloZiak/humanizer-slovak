@@ -1,130 +1,139 @@
-# Humanizer Czech
+# Humanizer Slovak
 
-![Version](https://img.shields.io/badge/version-2.0.0-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
+!\[Version](https://img.shields.io/badge/version-1.0.0-blue)
+!\[License](https://img.shields.io/badge/license-MIT-green)
 
-![Czech Humanizer - Proven results](assets/czech-humanizer.png)
+## Prepíš slovenský text tak, ako by ho napísal človek.
 
-
-## Přepiš český text tak, jako by ho psal člověk.
-
-Pečlivě sestavený humanizer skill zaměřený specificky na český jazyk. Detekuje 27 vzorců typických pro AI-generovanou češtinu a přepisuje text tak, aby zněl přirozeně a co nejvíce lidsky. 🧑‍🏫
+Starostlivo zostavený humanizer skill zameraný špecificky na slovenský jazyk. Detekuje 27 vzorov typických pre AI-generovanú slovenčinu a prepíše text tak, aby znel prirodzene a čo najviac ľudsky. 🧑‍🏫
 
 
-## 4 styly výstupu
 
-- **Akademický** - odborný, precizní, pro výzkum, odborné a akademické práce
-- **Formální** - profesionální, pro firemní komunikaci a produktové texty
-- **Přátelský** - teplý tón, pro blogy, newslettery, sociální sítě
-- **Konverzační** - neformální, přirozený, jako bys psal kámošoj
+## 4 štýly výstupu
 
-
-## Co to dělá
-
-- **Zakazuje em dash (—)** - nahrazuje ho běžnou pomlčkou (-)
-- **Identifikuje české AI klišé** ("V dnešní době", "Je důležité zdůraznit", "Závěrem lze konstatovat"...)
-- **Detekuje anglický slovosled**, kalky, nominalizaci a další česko-specifické vzorce
-- **Odstraňuje nafouklý jazyk**, trpný rod, vágní atribuce
-- **Přidává osobnost** a autentický hlas
-- **Dual-pass systém**: přepíše → zkontroluje → opraví znovu
-- **4 styly výstupu:** akademický, formální, přátelský, konverzační
-
-## Smrt em dashi! 🥳
-
-Znáte ten dlouhý pomlčkový znak **—** co je doslova v každém AI textu? Ten, co žádný "normální" Čech NIKDY v životě nenapíše, protože na klávesnici prostě zmáčkne pomlčku "-"? Tak ten už ve svém textu nikdy neuvidíte.<br>
-Je to na první pohled nejviditelnější znak AI generovaného textu a je úplně všude. Tohle je první humanizer, který ho řeší natvrdo jako globální pravidlo.
+* **Akademický** - odborný, presný, pre výskum, odborné a akademické práce
+* **Formálny** - profesionálny, pre firemnú komunikáciu a produktové texty
+* **Priateľský** - teplý tón, pre blogy, newslettery, sociálne siete
+* **Konverzačný** - neformálny, prirodzený, ako keby si písal kamošovi
 
 
-## Příklad
+
+## Čo to robí
+
+* **Zakazuje em dash (—)** - nahrádza ho bežnou pomlčkou (-)
+* **Identifikuje slovenské AI klišé** ("V dnešnej dobe", "Je dôležité zdôrazniť", "Na záver možno konštatovať"...)
+* **Detekuje anglický slovosled**, kalky, nominalizáciu a ďalšie slovensko-špecifické vzorce
+* **Odstraňuje nafúknutý jazyk**, trpný rod, vágne atribúcie
+* **Pridáva osobnosť** a autentický hlas
+* **Dual-pass systém**: prepíše → skontroluje → opraví znovu
+* **4 štýly výstupu:** akademický, formálny, priateľský, konverzačný
+
+
+
+## Smrť em dashi! 🥳
+
+Poznáte ten dlhý pomlčkový znak **—** čo je doslova v každom AI texte? Ten, čo žiadny "normálny" Slovák NIKDY v živote nenapíše, lebo na klávesnici jednoducho stlačí pomlčku "-"? Tak ten už vo svojom texte neuvidíte.<br>
+Je to na prvý pohľad najviditeľnejší znak AI-generovaného textu a je úplne všade. Toto je prvý slovenský humanizer, ktorý ho rieši natvrdo ako globálne pravidlo.
+
+
+
+## Príklad
 
 **Vstup (typický AI text):**
-> V dnešní rychle se měnící digitální době je stále důležitější věnovat pozornost oblasti umělé inteligence. Je důležité zdůraznit, že AI představuje revoluční technologii, která zásadním způsobem mění krajinu moderního podnikání.
 
-**Výstup (styl: přátelský):**
-> AI v podnikání řeší firmy teď, ne za pět let. Gartner říká, že ji testuje 65 % středních firem v Evropě, ale upřímně - většina z nich teprve zkouší, co to vlastně umí.
+> V dnešnom rýchlo sa meniacom digitálnom svete je čoraz dôležitejšie venovať pozornosť oblasti umelej inteligencie. Je dôležité zdôrazniť, že AI predstavuje revolučnú technológiu, ktorá zásadným spôsobom mení krajinu moderného podnikania.
 
+**Výstup (štýl: priateľský):**
 
-## 27 detekovaných vzorců
-
-| # | Vzorec | Příklad |
-|---|--------|---------|
-| 1 | Nafouklé otevírací fráze | "V dnešní době..." |
-| 2 | Přehnané zdůrazňování | "Je důležité zdůraznit..." |
-| 3 | Formulaické závěry | "Závěrem lze konstatovat..." |
-| 4 | Nadužívání spojek | "Nicméně", "Kromě toho", "V neposlední řadě" |
-| 5 | Přehnaná formálnost | "Bylo dosaženo", "Je zapotřebí" |
-| 6 | Pravidlo tří | Trojice přídavných jmen/příkladů |
-| 7 | Propagační jazyk | "Revoluční", "Inovativní", "Komplexní řešení" |
-| 8 | Vágní atribuce | "Odborníci se shodují", "Studie ukazují" |
-| 9 | Nadužívání pomlček | Přehnané em dash (—) |
-| 10 | Přehnané formátování | Tučné nadpisy v seznamech |
-| 11 | Emoji dekorace | Emoji v nadpisech |
-| 12 | Chatbot artefakty | "Skvělá otázka!", "Rád pomohu" |
-| 13 | Synonymické kolečko | Společnost/firma/podnik/korporace |
-| 14 | Falešné rozsahy | "Od startupů po korporace" |
-| 15 | Generické závěry | "Budoucnost vypadá slibně" |
-| 16 | Výplňové fráze | "Za účelem dosažení", "Vzhledem k tomu, že" |
-| 17 | Anglický slovosled | Porušení aktuálního členění větného |
-| 18 | Monotónní rytmus | Všechny věty podobné délky (nízká burstiness) |
-| 19 | Přivlastňovací zájmena | "Otevřel své oči a vzal svůj telefon" |
-| 20 | Anglické kalky | "Pojďme se ponořit do", "na denní bázi" |
-| 21 | Nadměrná nominalizace | "Došlo k realizaci implementace" |
-| 22 | Meta-komentáře | "V tomto článku se podíváme na..." |
-| 23 | Falešná vyváženost | "Na jedné straně... na druhé straně..." |
-| 24 | Ukazovací zájmena | "Tento problém... Tato situace... Tyto faktory..." |
-| 25 | Copula avoidance | "Představuje klíčový nástroj" místo "je" |
-| 26 | Sendvičová struktura | Úvod - 3 body - závěr vždy |
-| 27 | Tautologická zdvojení | "různé a rozmanité", "efektivní a účinné" |
+> AI v podnikaní riešia firmy teraz, nie o päť rokov. Gartner hovorí, že ju testuje 65 % stredných firiem v Európe, ale úprimne - väčšina z nich len skúša, čo to vlastne vie.
 
 
-> [!NOTE]
-> **Výsledky detektorů:** Vzali jsme extra těžce AI-generovaný text, u kterého všechny detektory hlásily, že je na 100 % generovaný AI. Prohnali jsme ho tímto czech humanizerem a nechali otestovat top detektory. Výsledek?<br>
+
+## 27 detekovaných vzorov
+
+|#|Vzor|Príklad|
+|-|-|-|
+|1|Nafúknuté otváracie frázy|"V dnešnej dobe..."|
+|2|Prehnané zdôrazňovanie|"Je dôležité zdôrazniť..."|
+|3|Formulaické závery|"Na záver možno konštatovať..."|
+|4|Nadužívanie spojok|"Avšak", "Okrem toho", "V neposlednom rade"|
+|5|Prehnane formálny jazyk|"Bolo dosiahnuté", "Je potrebné"|
+|6|Pravidlo troch|Trojice prídavných mien/príkladov|
+|7|Propagačný jazyk|"Revolučný", "Inovatívny", "Komplexné riešenie"|
+|8|Vágna atribúcia|"Odborníci sa zhodujú", "Štúdie ukazujú"|
+|9|Nadužívanie pomlčiek|Prehnané em dash (—)|
+|10|Prehnané formátovanie|Tučné nadpisy v zoznamoch|
+|11|Emoji dekorácie|Emoji v nadpisoch|
+|12|Chatbot artefakty|"Skvelá otázka!", "Rád pomôžem"|
+|13|Synonymické koliesko|Spoločnosť/firma/podnik/korporácia|
+|14|Falošné rozsahy|"Od startupov po korporácie"|
+|15|Generické závery|"Budúcnosť vyzerá sľubne"|
+|16|Výplňové frázy|"Za účelom dosiahnutia", "Vzhľadom na to, že"|
+|17|Anglický slovosled|Porušenie aktuálneho členenia vetného|
+|18|Monotónny rytmus|Všetky vety podobnej dĺžky (nízka burstiness)|
+|19|Privlastňovacie zámená|"Otvoril svoje oči a vzal svoj telefón"|
+|20|Anglické kalky|"Poďme sa ponoriť do", "na dennej báze"|
+|21|Nadmerná nominalizácia|"Došlo k realizácii implementácie"|
+|22|Meta-komentáre|"V tomto článku sa pozrieme na..."|
+|23|Falošná vyváženosť|"Na jednej strane... na druhej strane..."|
+|24|Ukazovacie zámená|"Tento problém... Táto situácia... Tieto faktory..."|
+|25|Copula avoidance|"Predstavuje kľúčový nástroj" namiesto "je"|
+|26|Sendvičová štruktúra|Úvod - 3 body - záver vždy|
+|27|Tautologické zdvojenia|"rôzne a rozmanité", "efektívne a účinné"|
+
+
+
+> \[!NOTE]
+> \*\*Výsledky detektorov:\*\* Vzali sme extra ťažko AI-generovaný text, pri ktorom všetky detektory hlásili 100 % AI. Prohnali sme ho týmto slovenským humanizerom a nechali otestovať top detektory. Výsledok?<br>
 > Copyleaks: 0% AI. ✅<br>
 > GPTZero: "entirely human". ✅<br>
 > Grammarly: 0% AI. ✅
 
 
----
 
-## 🔧 Instalace
+\---
 
-### Claude Code (doporučeno)
+## 🔧 Inštalácia
+
+### Claude Code (odporúčané)
 
 ```bash
-# Naklonuj do složky skills
-mkdir -p ~/.claude/skills
-git clone https://github.com/bejek/humanizer-czech.git ~/.claude/skills/humanizer-czech
+# Naklonuj do priečinka skills
+mkdir -p \~/.claude/skills
+git clone https://github.com/\[repo]/humanizer-slovak.git \~/.claude/skills/humanizer-slovak
 ```
 
-Pak v Claude Code použij `/humanizer-czech` následovaný textem k humanizaci.
+Potom v Claude Code použi `/humanizer-slovak` nasledovaný textom na humanizáciu.
 
 ### Claude.ai (Projects)
 
-1. Stáhni [SKILL.md](SKILL.md) (nebo celý ZIP přes zelené tlačítko "Code")
-2. V claude.ai otevři Settings → Customize → Skills
-3. Nahraj SKILL.md jako nový skill
+1. Stiahni [SKILL.md](SKILL.md) (alebo celý ZIP cez zelené tlačidlo "Code")
+2. V claude.ai otvor Settings → Customize → Skills
+3. Nahraj SKILL.md ako nový skill
 
-### ChatGPT, Gemini, Copilot, Mistral a další LLM
+### ChatGPT, Gemini, Copilot, Mistral a ďalšie LLM
 
-1. Otevři [PROMPT.md](PROMPT.md)
-2. Zkopíruj celý obsah
-3. Vlož jako systémový prompt (system instructions) nebo na začátek konverzace
-4. Pošli text k humanizaci
+1. Otvor [PROMPT.md](PROMPT.md)
+2. Skopíruj celý obsah
+3. Vlož ako systémový prompt (system instructions) alebo na začiatok konverzácie
+4. Pošli text na humanizáciu
 
----
+\---
 
-## Poděkování
+## Poďakovanie
 
-Inspirováno projektem [humanizer](https://github.com/blader/humanizer) od [@blader](https://github.com/blader) - původní anglická verze s 10k+ stars. Česká verze přidává 27 vzorců specifických pro český jazyk a systém 4 stylů výstupu.
+Tento projekt je slovenskou adaptáciou [**Humanizer Czech**](https://github.com/bejek/humanizer-czech) — výborne spracovaného českého humanizera, ktorý si zaslúži všetku zásluhu za pôvodnú myšlienku, štruktúru a 27 detekovaných vzorov. Slovenská verzia preberá celý framework, lokalizuje ho pre slovenský jazyk a pridáva slovensko-špecifické jazykové nuansy (iný slovosled rémy, slovenské kalky, miestny kontext).
 
-Vychází také z [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing).
+Inšpirované projektom [humanizer](https://github.com/blader/humanizer) od [@blader](https://github.com/blader) - pôvodná anglická verzia s 10k+ stars, ktorá to všetko odštartovala.
 
-Vzorce 17-27 identifikovány cross-referencí výstupů z Claude, ChatGPT a Gemini.
+Vychádza tiež z [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing).
 
----
+Vzorce 17-27 identifikované cross-referenciou výstupov z Claude, ChatGPT a Gemini.
 
-## Licence
+\---
 
-[MIT](LICENSE) - používej jak chceš, komerčně i nekomerčně.
+## Licencia
 
----
+[MIT](LICENSE) - používaj ako chceš, komerčne aj nekomerčne.
+
+\---
