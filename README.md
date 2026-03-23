@@ -1,7 +1,10 @@
 # Humanizer Slovak
 
-!\[Version](https://img.shields.io/badge/version-1.0.0-blue)
-!\[License](https://img.shields.io/badge/license-MIT-green)
+
+![Version](https://img.shields.io/badge/version-2.0.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+
+![Slovak Humanizer - Proven results](assets/slovak-humaniser.jpg)
 
 ## Prepíš slovenský text tak, ako by ho napísal človek.
 
@@ -84,7 +87,7 @@ Je to na prvý pohľad najviditeľnejší znak AI-generovaného textu a je úpln
 
 
 > \[!NOTE]
-> \*\*Výsledky detektorov:\*\* Vzali sme extra ťažko AI-generovaný text, pri ktorom všetky detektory hlásili 100 % AI. Prohnali sme ho týmto slovenským humanizerom a nechali otestovať top detektory. Výsledok?<br>
+> \*\*Výsledky detektorov:\*\* Vzali sme extra ťažko AI-generovaný text, pri ktorom všetky detektory hlásili 100 % AI. Prehnali sme ho týmto slovenským humanizerom a nechali otestovať top detektory. Výsledok?<br>
 > Copyleaks: 0% AI. ✅<br>
 > GPTZero: "entirely human". ✅<br>
 > Grammarly: 0% AI. ✅
