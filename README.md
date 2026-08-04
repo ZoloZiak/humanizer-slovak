@@ -1,6 +1,6 @@
 # Humanizer Slovak
 
-![Version](https://img.shields.io/badge/version-2.2.0-blue)
+![Version](https://img.shields.io/badge/version-2.3.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ![Slovak Humanizer - Proven results](assets/slovak-humaniser.jpg)
@@ -26,6 +26,7 @@ Humanizer skill postavený špecificky na slovenčinu. Nájde 34 vzorcov, ktoré
 - **Deteguje anglický slovosled**, kalky, nominalizáciu a ďalšie vzorce typické pre slovenčinu
 - **Odstraňuje nafúknutý jazyk**, trpný rod, vágne atribúcie
 - **Pridáva osobnosť** a autentický hlas
+- **Chráni pred over-humanizovaním** - zoznam "čo NEopravovať" (dokonalá gramatika ≠ AI) + znaky ľudského písania na zachovanie
 - **Dual-pass systém**: prepíše → skontroluje → opraví znova
 - **4 štýly výstupu:** akademický, formálny, priateľský, konverzačný
 

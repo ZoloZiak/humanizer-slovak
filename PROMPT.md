@@ -590,6 +590,36 @@ Tieto vzory identifikoval [blader/humanizer](https://github.com/blader/humanizer
 > Či sa to oplatí, závisí od toho, ako často to budeš používať.
 
 ---
+
+## ČO NEOPRAVOVAŤ (ochrana proti over-humanizovaniu)
+
+Aj čistý ľudský text môže spĺňať niektoré z vyššie uvedených vzorov bez akéhokoľvek zásahu AI. Predtým, než začneš prepisovať, over si, či nekášeš legitímnu prózu. Tieto veci samy o sebe NIE sú spoľahlivým znakom AI:
+
+- **Dokonalá gramatika a konzistentný štýl.** Mnohí autori sú profesionáli alebo prešli redakciou. Vybrúsenosť sa nerovná AI.
+- **Miešanie hovorového a formálneho registra.** Často signalizuje človeka z technického odboru alebo mladšieho autora, nie chatbota.
+- **"Suchá" alebo "robotická" próza.** AI má *konkrétne* prejavy. Všeobecná strohosť bez tých konkrétnych prejavov je len strohé písanie.
+- **Formálny alebo odborný slovník.** AI nadužíva *konkrétne* nafúknuté slová, nie každé odborné slovo. Nezoškrabávaj "údajne" alebo "konštitučný" len preto, že znejú učene.
+- **Bežné prechodové slová izolovane.** "Navyše", "okrem toho", "v dôsledku" sú podozrivé len keď sa kopia. Jedno "avšak" nie je prejav AI.
+- **Jedna krátka úderná veta.** Ľudia používajú useknuté vety na zdôraznenie pointy. Staccato drámu (vzor 37) označ len keď je niekoľko krátkych fragmentov za sebou a nafukujú tón.
+- **"Úprimne" alebo "pozri" uprostred vety.** V neformálnom písaní sú bežné. Prejavom je len samostatný divadelný otvárač (vzor 39), nie samotné slovo.
+- **Tvrdenia bez zdroja.** Väčšina textu na webe je bez citácií. Chýbajúci zdroj nič nedokazuje.
+- **Správne, zložité formátovanie.** Vizuálne editory a šablóny produkujú čistý výstup aj bez AI.
+- **Text z druhej ruky.** Neprepisuj sledované frázy vnútri citátov, názvov, vlastných mien alebo príkladov, kde sa fráza rozoberá, nie používa.
+
+Keď si nie si istý, hľadaj **zhluky** prejavov, nie izolované. Jedna dlhá pomlčka neznamená nič; dlhá pomlčka + pravidlo troch + "pestrá tapiséria" + sekcia "Záver" je priznanie.
+
+## ZNAKY ĽUDSKÉHO PÍSANIA (zachovaj ich)
+
+Keď vidíš tieto veci, prikloň sa k tomu nechať prózu na pokoji - sú to dôkazy skutočného človeka za textom a prehnané editovanie zničí presne to, čo robí text ľudským:
+
+- **Konkrétny, nezvyčajný, ťažko vymysliteľný detail.** Skutočná adresa. Zvláštny citát. Veta "právnik, čo kedysi robil poschodie nad mojím zubárom". AI zaokrúhľuje konkrétnosti, človek si ich hromadí.
+- **Zmiešané pocity a nevyriešené napätie.** "Myslím, že je to väčšinou dobré, ale niečo mi na tom vadí a neviem presne čo." AI defaultne vytvára čisté, jednoznačné závery.
+- **Dobové odkazy.** Slang, memy alebo vnútorné vtipy viazané na konkrétny rok a subkultúru. Modely zaostávajú o rok aj viac.
+- **Autorské rozhodnutia v prvej osobe, ktoré vie autor obhájiť.** Ak vie vysvetliť, *prečo* niečo vyškrtol alebo použil dané slovo, je to silný ľudský signál.
+- **Premenlivá dĺžka viet.** Skutočné písanie strieda krátke a dlhé. AI inklinuje k rovnomernej, stredne dlhej kadencii.
+- **Skutočné odbočky, vsuvky alebo sebaopravy.** "(Stále chcem povedať 'takmer', ale naozaj to bolo isté.)" Modely sa takto málokedy prerušia.
+
+---
 ## OSOBNOSŤ A DUŠA
 
 Odstrániť AI vzorce je len polovica práce. Sterilný text bez osobnosti je rovnako podozrivý. Dobrý text má za sebou človeka.
