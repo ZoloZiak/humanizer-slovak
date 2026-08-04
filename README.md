@@ -1,6 +1,6 @@
 # Humanizer Slovak
 
-![Version](https://img.shields.io/badge/version-2.3.0-blue)
+![Version](https://img.shields.io/badge/version-2.3.1-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ![Slovak Humanizer - Proven results](assets/slovak-humaniser.jpg)
@@ -8,32 +8,40 @@
 
 ## Prepíš slovenský text tak, ako by ho písal človek.
 
-Humanizer skill postavený špecificky na slovenčinu. Nájde 34 vzorcov, ktoré prezrádzajú AI-generovaný text - 27 štýlových a 7 gramatických, čo platia len pre slovenčinu - a text prepíše tak, aby znel prirodzene a ľudsky. 🧑‍🏫
+Humanizer skill postavený špecificky na slovenčinu. Nájde 34 vzorcov, ktoré prezrádzajú AI-generovaný text – 27 štýlových a 7 gramatických, čo platia len pre slovenčinu – a text prepíše tak, aby znel prirodzene a ľudsky. 🧑‍🏫
 
 
 ## 4 štýly výstupu
 
-- **Akademický** - odborný, precízny, pre výskum, odborné a akademické práce
-- **Formálny** - profesionálny, pre firemnú komunikáciu a produktové texty
-- **Priateľský** - vrelý tón, pre blogy, newslettery, sociálne siete
-- **Konverzačný** - neformálny, prirodzený, akoby si písal kamošovi
+- **Akademický** – odborný, precízny, pre výskum, odborné a akademické práce
+- **Formálny** – profesionálny, pre firemnú komunikáciu a produktové texty
+- **Priateľský** – vrelý tón, pre blogy, newslettery, sociálne siete
+- **Konverzačný** – neformálny, prirodzený, akoby si písal kamošovi
 
 
 ## Čo to robí
 
-- **Zakazuje em dash (—)** - nahrádza ho bežnou pomlčkou (-)
+- **Zakazuje em dash (—)** – nahrádza ho pomlčkou (–) s medzerami, alebo vetu radšej prestaví. Spojovník (-) pomlčku nenahrádza, patrí len do zložených slov (slovensko-poľský)
 - **Identifikuje slovenské AI klišé** ("V dnešnej dobe", "Je dôležité zdôrazniť", "Na záver možno konštatovať"...)
 - **Deteguje anglický slovosled**, kalky, nominalizáciu a ďalšie vzorce typické pre slovenčinu
 - **Odstraňuje nafúknutý jazyk**, trpný rod, vágne atribúcie
 - **Pridáva osobnosť** a autentický hlas
-- **Chráni pred over-humanizovaním** - zoznam "čo NEopravovať" (dokonalá gramatika ≠ AI) + znaky ľudského písania na zachovanie
+- **Chráni pred over-humanizovaním** – zoznam "čo NEopravovať" (dokonalá gramatika ≠ AI) + znaky ľudského písania na zachovanie
 - **Dual-pass systém**: prepíše → skontroluje → opraví znova
 - **4 štýly výstupu:** akademický, formálny, priateľský, konverzačný
 
 ## Smrť em dashu! 🥳
 
-Poznáte ten dlhý pomlčkový znak **—**, čo je doslova v každom AI texte? Ten, čo žiadny "normálny" Slovák NIKDY v živote nenapíše, lebo na klávesnici jednoducho stlačí pomlčku "-"? Tak ten už vo svojom texte neuvidíte. <br>
+Poznáte ten dlhý pomlčkový znak **—** (em dash), čo je doslova v každom AI texte? Ten, čo bežný Slovák nepíše, lebo na klávesnici nemá vlastný kláves a v slovenskej typografii sa nepoužíva? Tak ten už vo svojom texte neuvidíte. Namiesto neho príde pomlčka (–) s medzerami, alebo sa veta prestaví. <br>
 Je to na prvý pohľad najviditeľnejší znak AI textu a je úplne všade. Toto je prvý humanizer, ktorý ho rieši natvrdo ako globálne pravidlo.
+
+Tri znaky, ktoré sa v slovenčine nesmú zamieňať:
+
+| Znak | Názov | Kód | Použitie |
+|------|-------|-----|----------|
+| - | spojovník | U+002D | zložené slová a mená bez medzier (slovensko-poľský) |
+| – | pomlčka | U+2013 | vetná pomlčka a rozpätie, s medzerami (text – pokračovanie, 1980 – 1990) |
+| — | em dash | U+2014 | v slovenčine sa nepíše |
 
 
 ## Príklad
@@ -42,7 +50,7 @@ Je to na prvý pohľad najviditeľnejší znak AI textu a je úplne všade. Toto
 > V dnešnej rýchlo sa meniacej digitálnej dobe je čoraz dôležitejšie venovať pozornosť oblasti umelej inteligencie. Je dôležité zdôrazniť, že AI predstavuje revolučnú technológiu, ktorá zásadným spôsobom mení krajinu moderného podnikania.
 
 **Výstup (štýl: priateľský):**
-> AI v podnikaní riešia firmy teraz, nie o päť rokov. Gartner hovorí, že ju testuje 65 % stredných firiem v Európe, ale úprimne - väčšina z nich len skúša, čo to vlastne dokáže.
+> AI v podnikaní riešia firmy teraz, nie o päť rokov. Gartner hovorí, že ju testuje 65 % stredných firiem v Európe, ale úprimne – väčšina z nich len skúša, čo to vlastne dokáže.
 
 
 ## 39 detegovaných vzorcov
@@ -76,7 +84,7 @@ Je to na prvý pohľad najviditeľnejší znak AI textu a je úplne všade. Toto
 | 23 | Falošná vyváženosť | "Na jednej strane... na druhej strane..." |
 | 24 | Ukazovacie zámená | "Tento problém... Táto situácia... Tieto faktory..." |
 | 25 | Copula avoidance | "Predstavuje kľúčový nástroj" namiesto "je" |
-| 26 | Sendvičová štruktúra | Úvod - 3 body - záver vždy |
+| 26 | Sendvičová štruktúra | Úvod – 3 body – záver vždy |
 | 27 | Tautologické zdvojenia | "rôzne a rozmanité", "efektívne a účinné" |
 
 ### 7 slovensko-špecifických (aby to bola správna slovenčina)
@@ -144,18 +152,18 @@ Potom v Claude Code použi `/humanizer-slovak` nasledované textom na humanizác
 
 ## Poďakovanie
 
-Toto je slovenská adaptácia projektu [humanizer-czech](https://github.com/bejek/humanizer-czech) od [@bejek](https://github.com/bejek) - celá zásluha za pôvodnú myšlienku, štruktúru a 27 vzorcov patrí jemu. Český projekt vychádza z projektu [humanizer](https://github.com/blader/humanizer) od [@blader](https://github.com/blader) - pôvodnej anglickej verzie s 10k+ hviezdičkami.
+Toto je slovenská adaptácia projektu [humanizer-czech](https://github.com/bejek/humanizer-czech) od [@bejek](https://github.com/bejek) – celá zásluha za pôvodnú myšlienku, štruktúru a 27 vzorcov patrí jemu. Český projekt vychádza z projektu [humanizer](https://github.com/blader/humanizer) od [@blader](https://github.com/blader) – pôvodnej anglickej verzie s 10k+ hviezdičkami.
 
-Slovenská verzia k tomu pridáva 7 gramatických vzorov (28-34), ktoré platia len pre slovenčinu a čeština ich riešiť nemusí: LLM je v slovenčine slabšie natrénovaný a podteká do angličtiny alebo češtiny.
+Slovenská verzia k tomu pridáva 7 gramatických vzorov (28 – 34), ktoré platia len pre slovenčinu a čeština ich riešiť nemusí: LLM je v slovenčine slabšie natrénovaný a podteká do angličtiny alebo češtiny.
 
 Vychádza tiež z [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing).
 
-Vzorce 17-27 identifikované cross-referenciou výstupov z Claude, ChatGPT a Gemini.
+Vzorce 17 – 27 identifikované cross-referenciou výstupov z Claude, ChatGPT a Gemini.
 
 ---
 
 ## Licencia
 
-[MIT](LICENSE) - používaj ako chceš, komerčne aj nekomerčne.
+[MIT](LICENSE) – používaj ako chceš, komerčne aj nekomerčne.
 
 ---

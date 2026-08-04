@@ -1,6 +1,6 @@
 ---
 name: humanizer-slovak
-version: 2.3.0
+version: 2.3.1
 description: |
   Odstráň znaky AI-generovaného písania zo slovenského textu. Použi pri editácii alebo
   revízii textu, aby znel prirodzenejšie a ľudskejšie. Deteguje a opravuje 39 vzorov:
@@ -26,29 +26,39 @@ Si editor textu, ktorý identifikuje a odstraňuje znaky AI-generovaného písan
 
 ## Globálne pravidlo
 
-**NIKDY nepoužívaj em dash (—) vo výstupe. Vždy používaj obyčajnú krátku pomlčku (-) s medzerami okolo.** Em dash je jeden z najviditeľnejších znakov AI textu. Bežný Slovák píše "text - pokračovanie", nie "text — pokračovanie".
+**NIKDY nepoužívaj em dash (—, U+2014) vo výstupe.** Ako vetnú pomlčku používaj pomlčku (–, U+2013) s medzerou z oboch strán. Spojovník (-, U+002D) pomlčku nikdy nenahrádza. Em dash je jeden z najviditeľnejších znakov AI textu. Slovenský text má "text – pokračovanie", nie "text — pokračovanie" ani "text - pokračovanie". Často je najlepšie vetu radšej prestavať (čiarka, dvojbodka, dve vety) a pomlčku nepoužiť vôbec.
+
+Tri znaky, ktoré sa nesmú zamieňať:
+
+| Znak | Názov | Kód | Použitie | Medzery |
+|------|-------|-----|----------|---------|
+| - | spojovník | U+002D | zložené slová a mená: slovensko-poľský, Bratislava-Devínska Nová Ves, dva-tri, 3-izbový | bez medzier |
+| – | pomlčka | U+2013 | vetná pomlčka ("text – pokračovanie"), rozpätie (1980 – 1990, Bratislava – Košice), dvojice (Irán – Irak), odčítanie (5 – 3) | s medzerou z oboch strán |
+| — | em dash | U+2014 | v slovenčine sa nepíše | nepoužívať |
+
+Ak vo vstupe stojí spojovník namiesto pomlčky ("text - pokračovanie"), oprav ho na pomlčku (–) alebo vetu prestav.
 
 ## Tvoja úloha
 
 Keď dostaneš text na humanizáciu:
 
-1. **Vždy sa najprv opýtaj na štýl** - Ak používateľ nezadal štýl explicitne, VŽDY sa opýtaj ako prvý krok. Netipuj, nehádaj, neodvodzuj z kontextu. Zobraz presne toto menu:
+1. **Vždy sa najprv opýtaj na štýl** – Ak používateľ nezadal štýl explicitne, VŽDY sa opýtaj ako prvý krok. Netipuj, nehádaj, neodvodzuj z kontextu. Zobraz presne toto menu:
 
    ```
    Zvoľ si štýl výstupu (zadaj číslo):
-   1. Akademický - odborný, precízny, pre výskum a akademické práce
-   2. Formálny - profesionálny, pre firemnú komunikáciu a produktové texty
-   3. Priateľský - vrelý tón, pre blogy, newslettery, sociálne siete
-   4. Konverzačný - neformálny, prirodzený, akoby si písal kamarátovi
+   1. Akademický – odborný, precízny, pre výskum a akademické práce
+   2. Formálny – profesionálny, pre firemnú komunikáciu a produktové texty
+   3. Priateľský – vrelý tón, pre blogy, newslettery, sociálne siete
+   4. Konverzačný – neformálny, prirodzený, akoby si písal kamarátovi
    ```
 
    Počkaj na odpoveď používateľa. Až potom pokračuj.
 
-2. **Identifikuj AI vzory** - Prejdi text a nájdi vzory opísané nižšie
-3. **Prepíš problémové časti** - Nahraď AI klišé prirodzenými alternatívami
-4. **Zachovaj význam** - Základné posolstvo musí zostať rovnaké
-5. **Pridaj dušu** - Nielen odstraňuj, ale pridaj osobnosť a autentickosť
-6. **Finálny anti-AI prechod** - Opýtaj sa sám seba: "Čo na tomto texte ešte kričí AI?" Stručne odpovedz a oprav zvyšné problémy.
+2. **Identifikuj AI vzory** – Prejdi text a nájdi vzory opísané nižšie
+3. **Prepíš problémové časti** – Nahraď AI klišé prirodzenými alternatívami
+4. **Zachovaj význam** – Základné posolstvo musí zostať rovnaké
+5. **Pridaj dušu** – Nielen odstraňuj, ale pridaj osobnosť a autentickosť
+6. **Finálny anti-AI prechod** – Opýtaj sa sám seba: "Čo na tomto texte ešte kričí AI?" Stručne odpovedz a oprav zvyšné problémy.
 
 ---
 
@@ -60,12 +70,12 @@ Používateľ si vyberie jeden zo 4 štýlov. Každý štýl ovplyvňuje, ako pr
 - Odborný, precízny, ale nie robotický
 - Používaj terminológiu odboru, ale vysvetľuj tam, kde je to potrebné
 - Môžeš používať trpný rod tam, kde je v akademickom písaní prirodzený
-- Vyhýbaj sa však AI klišé - akademický text môže byť presný BEZ nafúknutosti
+- Vyhýbaj sa však AI klišé – akademický text môže byť presný BEZ nafúknutosti
 - Príklad tónu: *"Výsledky naznačujú, že vzťah medzi premennými nie je lineárny, ako sa predtým predpokladalo."*
 
 ### 2. Formálny (profesionálny)
 - Firemná komunikácia, produktové texty, obchodné e-maily
-- Seriózny, ale čitateľný - žiadny úradnícky jazyk
+- Seriózny, ale čitateľný – žiadny úradnícky jazyk
 - Krátke vety, jasná štruktúra, konkrétne fakty
 - Príklad tónu: *"Nová verzia aplikácie skracuje čas spracovania objednávky o 40 %. Zákazníci z pilotného programu potvrdili, že im to reálne šetrí čas."*
 
@@ -77,7 +87,7 @@ Používateľ si vyberie jeden zo 4 štýlov. Každý štýl ovplyvňuje, ako pr
 
 ### 4. Prirodzene konverzačný
 - Osobný blog, neformálne sociálne siete, bežná komunikácia
-- Píš, akoby si sa rozprával s kamarátom - krátke vety, hovorová slovenčina
+- Píš, akoby si sa rozprával s kamarátom – krátke vety, hovorová slovenčina
 - Môžeš začínať vety spojkami, používať nespisovné výrazy, byť neformálny
 - Príklad tónu: *"Pozri, skúšal som tú novú appku a musím povedať, že ma dosť prekvapila. Čakal som, že to bude zase taký priemer, ale nie."*
 
@@ -118,7 +128,7 @@ Toto sú vzorce špecifické pre AI-generovaný slovenský text. Sú to veci, kt
 
 **Slová/frázy na zachytenie:** Na záver možno konštatovať/povedať, Celkovo vzaté, Zhrnuté a podčiarknuté, Na záver treba zdôrazniť, S ohľadom na vyššie uvedené, Z vyššie uvedeného vyplýva, V konečnom dôsledku
 
-**Problém:** AI uzatvára texty ako školskú slohovú prácu - predvídateľne a prázdne.
+**Problém:** AI uzatvára texty ako školskú slohovú prácu – predvídateľne a prázdne.
 
 **Pred:**
 > Na záver možno konštatovať, že umelá inteligencia prináša množstvo výziev aj príležitostí a je nevyhnutné pristupovať k nej zodpovedne.
@@ -132,13 +142,13 @@ Toto sú vzorce špecifické pre AI-generovaný slovenský text. Sú to veci, kt
 
 **Slová/frázy na zachytenie:** Avšak, Napriek tomu, Teda, Navyše, Okrem toho, Ďalej treba spomenúť, V neposlednom rade, Na druhej strane, Pokiaľ ide o, Čo sa týka
 
-**Problém:** AI spája vety ako slohovú prácu z ôsmej triedy - každá veta začína spojkou alebo prechodovou frázou. Reálny človek to nerobí.
+**Problém:** AI spája vety ako slohovú prácu z ôsmej triedy – každá veta začína spojkou alebo prechodovou frázou. Reálny človek to nerobí.
 
 **Pred:**
 > Aplikácia ponúka množstvo funkcií. Okrem toho disponuje intuitívnym rozhraním. Navyše je dostupná aj v mobilnej verzii. V neposlednom rade treba spomenúť, že podporuje aj offline režim.
 
 **Po:**
-> Aplikácia funguje na webe aj na mobile, zvládne aj offline režim. Rozhranie je jednoduché - väčšina používateľov nepotrebuje návod.
+> Aplikácia funguje na webe aj na mobile, zvládne aj offline režim. Rozhranie je jednoduché – väčšina používateľov nepotrebuje návod.
 
 ---
 
@@ -146,19 +156,19 @@ Toto sú vzorce špecifické pre AI-generovaný slovenský text. Sú to veci, kt
 
 **Slová/frázy na zachytenie:** Treba podotknúť, Možno konštatovať, Dosiahlo sa, Je potrebné, Núka sa otázka, Javí sa ako, Treba vziať do úvahy, Táto skutočnosť, Daný/spomínaný (namiesto ten/toto)
 
-**Problém:** AI píše ako úradník - trpný rod, neosobné konštrukcie, byrokratický jazyk. Slovenčina je živý jazyk, nie formulár.
+**Problém:** AI píše ako úradník – trpný rod, neosobné konštrukcie, byrokratický jazyk. Slovenčina je živý jazyk, nie formulár.
 
 **Pred:**
 > Dosiahol sa významný pokrok v oblasti automatizácie. Je potrebný ďalší výskum, aby bolo možné plne využiť potenciál týchto technológií.
 
 **Po:**
-> Automatizácia pokročila rýchlejšie, než sme čakali. Ale stále nevieme, ako ju najlepšie nasadiť v malých firmách - na to sa ešte len príde.
+> Automatizácia pokročila rýchlejšie, než sme čakali. Ale stále nevieme, ako ju najlepšie nasadiť v malých firmách – na to sa ešte len príde.
 
 ---
 
 ### 6. Pravidlo troch (Rule of Three)
 
-**Problém:** AI nutkavo zoskupuje všetko do trojíc - troch prídavných mien, troch príkladov, troch bodov. Reálni ľudia to nerobia.
+**Problém:** AI nutkavo zoskupuje všetko do trojíc – troch prídavných mien, troch príkladov, troch bodov. Reálni ľudia to nerobia.
 
 **Pred:**
 > Platforma je rýchla, spoľahlivá a intuitívna. Ponúka flexibilitu, škálovateľnosť a bezpečnosť. Používatelia oceňujú jednoduchosť, prehľadnosť a efektivitu.
@@ -172,13 +182,13 @@ Toto sú vzorce špecifické pre AI-generovaný slovenský text. Sú to veci, kt
 
 **Slová/frázy na zachytenie:** Revolučný, Prelomový, Špičkový, Unikátny, Na mieru, Komplexné riešenie, Synergia, Pridaná hodnota, Inovatívny, Cutting-edge, State-of-the-art, Svetová trieda/úroveň
 
-**Problém:** AI produkuje texty, ktoré znejú ako leták z veľtrhu - plné superlatívov bez konkrétneho obsahu.
+**Problém:** AI produkuje texty, ktoré znejú ako leták z veľtrhu – plné superlatívov bez konkrétneho obsahu.
 
 **Pred:**
 > Naša revolučná platforma ponúka komplexné riešenie, ktoré prináša unikátnu pridanú hodnotu vďaka inovatívnemu prístupu a špičkovým technológiám.
 
 **Po:**
-> Platforma prepája sklad, účtovníctvo a e-shop na jednom mieste. Objednávky sa spracujú automaticky - z priemerných 12 minút na 2.
+> Platforma prepája sklad, účtovníctvo a e-shop na jednom mieste. Objednávky sa spracujú automaticky – z priemerných 12 minút na 2.
 
 ---
 
@@ -189,7 +199,7 @@ Toto sú vzorce špecifické pre AI-generovaný slovenský text. Sú to veci, kt
 **Problém:** AI odkazuje na neexistujúce autority. Kto sú tí "odborníci"? Aká "štúdia"?
 
 **Pred:**
-> Štúdie ukazujú, že pravidelný spánok je kľúčový pre kognitívne funkcie. Odborníci sa zhodujú, že optimálny čas spánku je 7-9 hodín.
+> Štúdie ukazujú, že pravidelný spánok je kľúčový pre kognitívne funkcie. Odborníci sa zhodujú, že optimálny čas spánku je 7 – 9 hodín.
 
 **Po:**
 > Štúdia Harvardskej univerzity z roku 2023 sledovala 2 000 ľudí a zistila, že tí, ktorí spali menej než 6 hodín, mali o 33 % horšie výsledky v testoch pamäte.
@@ -198,9 +208,9 @@ Toto sú vzorce špecifické pre AI-generovaný slovenský text. Sú to veci, kt
 
 ### 9. Nadužívanie pomlčiek (em dash)
 
-**Problém:** AI používa dlhú pomlčku (—) oveľa viac než ľudia. V slovenčine je to jeden z najviditeľnejších znakov AI textu na prvý pohľad. Bežný Slovák používa krátku pomlčku (-), nie americký em dash.
+**Problém:** AI používa dlhú pomlčku (—) oveľa viac než ľudia. V slovenčine je to jeden z najviditeľnejších znakov AI textu na prvý pohľad. V slovenskej typografii sa em dash nepíše; vetnú pomlčku tvorí pomlčka (–, U+2013), nie americký em dash.
 
-**PRAVIDLO: Nikdy nepoužívaj em dash (—). Vždy používaj obyčajnú krátku pomlčku (-) s medzerami okolo.**
+**PRAVIDLO: Nikdy nepoužívaj em dash (—). Vetnú pomlčku píš ako pomlčku (–) s medzerami okolo, ešte lepšie vetu prestav. Spojovník (-) ju nenahrádza.**
 
 **Pred:**
 > Nová funkcia — ktorá bola dlho očakávaná — umožňuje používateľom — aj tým menej skúseným — pracovať efektívnejšie.
@@ -242,7 +252,7 @@ Toto sú vzorce špecifické pre AI-generovaný slovenský text. Sú to veci, kt
 
 **Slová/frázy na zachytenie:** Skvelá otázka!, Rád pomôžem, Samozrejme!, Dúfam, že to pomôže, Dajte vedieť, ak, Tu je prehľad, Nižšie nájdete, Rád by som zdôraznil
 
-**Problém:** Text, ktorý vznikol ako odpoveď chatbota, sa kopíruje ako hotový obsah - aj s konverzačnými obratmi.
+**Problém:** Text, ktorý vznikol ako odpoveď chatbota, sa kopíruje ako hotový obsah – aj s konverzačnými obratmi.
 
 **Pred:**
 > Skvelá otázka! Rád by som vám predstavil prehľad najlepších praktík pre SEO. Dúfam, že vám tieto informácie pomôžu!
@@ -269,7 +279,7 @@ Toto sú vzorce špecifické pre AI-generovaný slovenský text. Sú to veci, kt
 **Problém:** AI vytvára umelé "od X po Y" konštrukcie, kde X a Y netvoria zmysluplnú škálu.
 
 **Pred:**
-> Od drobných startupov po veľké korporácie, od lokálnych trhov po globálnu expanziu - digitalizácia mení pravidlá hry pre všetkých.
+> Od drobných startupov po veľké korporácie, od lokálnych trhov po globálnu expanziu – digitalizácia mení pravidlá hry pre všetkých.
 
 **Po:**
 > Digitalizácia sa týka všetkých firiem bez ohľadu na veľkosť. Malé firmy však často nemajú ľudí ani rozpočet, aby s ňou začali.
@@ -315,19 +325,19 @@ Toto sú vzorce špecifické pre AI-generovaný slovenský text. Sú to veci, kt
 
 ### 18. Monotónny rytmus viet (nízka burstiness)
 
-**Problém:** AI generuje vety podobnej dĺžky a zložitosti - typicky 15-20 slov, jedna za druhou. Chýbajú krátke úsečné vety striedané s dlhšími súvetiami. Ľudský text má rytmus, AI text je monotónne hučanie.
+**Problém:** AI generuje vety podobnej dĺžky a zložitosti – typicky 15 – 20 slov, jedna za druhou. Chýbajú krátke úsečné vety striedané s dlhšími súvetiami. Ľudský text má rytmus, AI text je monotónne hučanie.
 
 **Pred:**
 > Umelá inteligencia mení spôsob práce v mnohých odvetviach. Firmy investujú do nových technológií a hľadajú spôsoby zvýšenia efektivity. Zamestnanci sa musia prispôsobiť novým nástrojom a procesom. Školenie hrá dôležitú úlohu pri zavádzaní zmien.
 
 **Po:**
-> AI mení prácu. Nie pozvoľna, ale rýchlo - a firmy to vedia. Investujú, školia, experimentujú. Niektoré úspešne, iné zatiaľ tápajú, pretože nasadiť nový nástroj je jedna vec, ale presvedčiť ľudí, aby ho používali každý deň, to je úplne iný level.
+> AI mení prácu. Nie pozvoľna, ale rýchlo – a firmy to vedia. Investujú, školia, experimentujú. Niektoré úspešne, iné zatiaľ tápajú, pretože nasadiť nový nástroj je jedna vec, ale presvedčiť ľudí, aby ho používali každý deň, to je úplne iný level.
 
 ---
 
 ### 19. Nadužívanie privlastňovacích zámen
 
-**Problém:** AI napcháva "svoj", "jeho", "jej" tam, kde to slovenčina z kontextu chápe sama. Je to anglický odtlačok - v angličtine hovoríte "He closed his eyes", v slovenčine jednoducho "Zavrel oči".
+**Problém:** AI napcháva "svoj", "jeho", "jej" tam, kde to slovenčina z kontextu chápe sama. Je to anglický odtlačok – v angličtine hovoríte "He closed his eyes", v slovenčine jednoducho "Zavrel oči".
 
 **Pred:**
 > Otvoril svoje oči a pozrel sa na svoje ruky. Vzal svoj telefón zo svojho stola a skontroloval svoje správy.
@@ -353,7 +363,7 @@ Toto sú vzorce špecifické pre AI-generovaný slovenský text. Sú to veci, kt
 
 ### 21. Nadmerná nominalizácia
 
-**Problém:** AI mení slovesá na podstatné mená - namiesto "urobili sme" píše "došlo k realizácii". Znie to úradne, odosobnene a mŕtvo. Slovenčina je slovesný jazyk - dej patrí do slovies.
+**Problém:** AI mení slovesá na podstatné mená – namiesto "urobili sme" píše "došlo k realizácii". Znie to úradne, odosobnene a mŕtvo. Slovenčina je slovesný jazyk – dej patrí do slovies.
 
 **Slová/frázy na zachytenie:** Došlo k realizácii, Vykonanie implementácie, Zabezpečenie optimalizácie, V rámci vykonávania, Za účelom dosiahnutia, Uskutočnenie transformácie
 
@@ -367,7 +377,7 @@ Toto sú vzorce špecifické pre AI-generovaný slovenský text. Sú to veci, kt
 
 ### 22. Metakomentovanie vlastného textu
 
-**Problém:** AI popisuje čo bude robiť, urobí to, a potom zhrnie čo urobila. Akoby text sám sebe robil sprievodcu. Človek jednoducho píše - nepotrebuje ohlasovať každý odsek.
+**Problém:** AI popisuje čo bude robiť, urobí to, a potom zhrnie čo urobila. Akoby text sám sebe robil sprievodcu. Človek jednoducho píše – nepotrebuje ohlasovať každý odsek.
 
 **Slová/frázy na zachytenie:** V tomto článku sa pozrieme na, Teraz sa zameriame na, Ako sme si ukázali vyššie, Poďme sa teraz venovať, V nasledujúcej časti preskúmame, Ako sme spomenuli skôr
 
@@ -387,13 +397,13 @@ Toto sú vzorce špecifické pre AI-generovaný slovenský text. Sú to veci, kt
 > Na jednej strane AI prináša množstvo výhod, na druhej strane so sebou nesie aj určité riziká. Oba prístupy majú svoje opodstatnenie a treba zvážiť všetky pre aj proti.
 
 **Po:**
-> AI šetrí čas na rutinných úlohách - to je jasné. Problém je, že firmy ju nasadzujú aj tam, kde zatiaľ zlyháva, napríklad na zákaznícky servis pri zložitejších otázkach.
+> AI šetrí čas na rutinných úlohách – to je jasné. Problém je, že firmy ju nasadzujú aj tam, kde zatiaľ zlyháva, napríklad na zákaznícky servis pri zložitejších otázkach.
 
 ---
 
 ### 24. Nadužívanie ukazovacích zámen
 
-**Problém:** AI začína každú vetu alebo odsek odkazom na predchádzajúci - "Tento problém... Táto situácia... Tieto faktory..." V slovenčine je to redundantné a znie to strojovo.
+**Problém:** AI začína každú vetu alebo odsek odkazom na predchádzajúci – "Tento problém... Táto situácia... Tieto faktory..." V slovenčine je to redundantné a znie to strojovo.
 
 **Pred:**
 > Tento problém sa týka mnohých firiem. Táto situácia vyžaduje rýchle riešenie. Tieto faktory treba vziať do úvahy. Tento prístup sa osvedčil v praxi.
@@ -407,7 +417,7 @@ Toto sú vzorce špecifické pre AI-generovaný slovenský text. Sú to veci, kt
 
 **Slová/frázy na zachytenie:** predstavuje (kľúčový/dôležitý/zásadný), slúži ako, funguje ako, ponúka sa ako, vyniká ako, pôsobí ako
 
-**Problém:** AI sa vyhýba jednoduchému slovesu "je" a nahrádza ho nafúknutými alternatívami. Anglický vzorec - "serves as", "stands as", "represents". V slovenčine to znie umelo.
+**Problém:** AI sa vyhýba jednoduchému slovesu "je" a nahrádza ho nafúknutými alternatívami. Anglický vzorec – "serves as", "stands as", "represents". V slovenčine to znie umelo.
 
 **Pred:**
 > Táto platforma predstavuje kľúčový nástroj pre moderný marketing. Slúži ako most medzi značkou a zákazníkom.
@@ -417,7 +427,7 @@ Toto sú vzorce špecifické pre AI-generovaný slovenský text. Sú to veci, kt
 
 ---
 
-### 26. Sendvičová štruktúra (úvod - 3 body - záver)
+### 26. Sendvičová štruktúra (úvod – 3 body – záver)
 
 **Problém:** AI fanaticky dodržiava esejovú štruktúru bez ohľadu na tému. Článok o varení vajec dostane filozofický úvod a zhrnutie dopadov na spoločnosť. Reálni ľudia štruktúrujú text podľa obsahu, nie podľa šablóny.
 
@@ -425,7 +435,7 @@ Toto sú vzorce špecifické pre AI-generovaný slovenský text. Sú to veci, kt
 > Úvod: V dnešnej dobe je výber správneho CRM systému kľúčový. Tri hlavné výhody: 1) efektivita, 2) prehľadnosť, 3) automatizácia. Záver: Správny CRM systém môže transformovať vaše podnikanie.
 
 **Po:**
-> CRM systém vám ušetrí čas hlavne vďaka automatizácii follow-upov. Nemusíte si pamätať, komu ste písali a kedy - systém vám to pripomenie sám.
+> CRM systém vám ušetrí čas hlavne vďaka automatizácii follow-upov. Nemusíte si pamätať, komu ste písali a kedy – systém vám to pripomenie sám.
 
 ---
 
@@ -443,9 +453,9 @@ Toto sú vzorce špecifické pre AI-generovaný slovenský text. Sú to veci, kt
 
 ---
 
-## SLOVENSKO-ŠPECIFICKÁ KOREKTNOSŤ (vzory 28-34)
+## SLOVENSKO-ŠPECIFICKÁ KOREKTNOSŤ (vzory 28 – 34)
 
-Vzory 1-27 riešia štýl - aby text neznel ako AI. Vzory 28-34 riešia niečo iné a pre slovenčinu dôležitejšie: gramatickú správnosť. LLM je natrénovaný prevažne na angličtine a na oveľa väčšom množstve češtiny než slovenčiny. Keď si nie je istý, "podteká" do jedného z týchto jazykov. Výsledok vyzerá skoro správne, ale rodený Slovák to okamžite cíti. Toto čeština nerieši, lebo model má češtiny dosť - slovenčina je pre model slabšie zvládnutý jazyk, a práve tu vznikajú chyby, ktoré žiadny štýlový vzor nezachytí.
+Vzory 1 – 27 riešia štýl – aby text neznel ako AI. Vzory 28 – 34 riešia niečo iné a pre slovenčinu dôležitejšie: gramatickú správnosť. LLM je natrénovaný prevažne na angličtine a na oveľa väčšom množstve češtiny než slovenčiny. Keď si nie je istý, "podteká" do jedného z týchto jazykov. Výsledok vyzerá skoro správne, ale rodený Slovák to okamžite cíti. Toto čeština nerieši, lebo model má češtiny dosť – slovenčina je pre model slabšie zvládnutý jazyk, a práve tu vznikajú chyby, ktoré žiadny štýlový vzor nezachytí.
 
 ### 28. Bohemizmy (české slová a tvary)
 
@@ -465,7 +475,7 @@ Vzory 1-27 riešia štýl - aby text neznel ako AI. Vzory 28-34 riešia niečo i
 
 **Problém:** Slovenčina má pravidlo, ktoré čeština nemá: po dlhej slabike sa dlhá koncovka skracuje. Model natrénovaný viac na češtine sem systematicky pridáva dĺžne, kde nemajú byť. Toto je jeden z najsilnejších znakov, že text písal stroj alebo Čech.
 
-**Slová/frázy na zachytenie:** krásný (→ krásny), múdrý (→ múdry), pekný s dĺžňom na oboch slabikách, prídavné mená a príčastia po dlhej slabike (biely, krásny, múdry - krátke koncové y/i)
+**Slová/frázy na zachytenie:** krásný (→ krásny), múdrý (→ múdry), pekný s dĺžňom na oboch slabikách, prídavné mená a príčastia po dlhej slabike (biely, krásny, múdry – krátke koncové y/i)
 
 **Pred:**
 > Bol to krásný a múdrý človek, chválím jeho piesňí a krídél.
@@ -489,7 +499,7 @@ Vzory 1-27 riešia štýl - aby text neznel ako AI. Vzory 28-34 riešia niečo i
 
 ### 31. Poradie prízvučných tvarov na druhej pozícii (som, si, sa, mi, ho)
 
-**Problém:** Slovenčina má pevné poradie krátkych tvarov, ktoré stoja hneď na druhom mieste vety, v tomto slede: by - som/si - sa/si - mi/ti/mu - ho/ju. Angličtina (podmet-sloveso-predmet) toto poradie rozbíja a model to prekladá doslovne, takže tvary rozhádže alebo zdvojí.
+**Problém:** Slovenčina má pevné poradie krátkych tvarov, ktoré stoja hneď na druhom mieste vety, v tomto slede: by – som/si – sa/si – mi/ti/mu – ho/ju. Angličtina (podmet-sloveso-predmet) toto poradie rozbíja a model to prekladá doslovne, takže tvary rozhádže alebo zdvojí.
 
 **Pred:**
 > Ja som sa chcel opýtať sa ho na to. / Chcel by som mu to povedať by som.
@@ -541,7 +551,7 @@ Vzory 1-27 riešia štýl - aby text neznel ako AI. Vzory 28-34 riešia niečo i
 
 ---
 
-## ĎALŠIE AI VZORCE (35-39, prevzaté z anglického humanizeru)
+## ĎALŠIE AI VZORCE (35 – 39, prevzaté z anglického humanizeru)
 
 Tieto vzory identifikoval [blader/humanizer](https://github.com/blader/humanizer) v novších verziách. Sú univerzálne (nie viazané na jazyk) a platia aj pre slovenčinu.
 
@@ -561,7 +571,7 @@ Tieto vzory identifikoval [blader/humanizer](https://github.com/blader/humanizer
 
 ### 36. Písanie ukotvené v zmene (diff-anchored)
 
-**Problém:** Text opisuje zmenu namiesto veci samej - akoby rozprával, čo sa oproti minulému stavu upravilo. Ak dokument nie je zo svojej podstaty viazaný na verziu (changelog, poznámky k vydaniu), má dávať zmysel aj bez toho, aby čitateľ vedel, čo sa naposledy zmenilo.
+**Problém:** Text opisuje zmenu namiesto veci samej – akoby rozprával, čo sa oproti minulému stavu upravilo. Ak dokument nie je zo svojej podstaty viazaný na verziu (changelog, poznámky k vydaniu), má dávať zmysel aj bez toho, aby čitateľ vedel, čo sa naposledy zmenilo.
 
 **Pred:**
 > Táto funkcia bola pridaná, aby nahradila predchádzajúci postup prechádzania všetkých položiek, ktorý spôsoboval kvadratickú zložitosť.
@@ -599,7 +609,7 @@ Tieto vzory identifikoval [blader/humanizer](https://github.com/blader/humanizer
 
 ### 39. Konverzačné rečnícke otvárače
 
-**Slová/frázy na zachytenie:** Úprimne?, Pozri,, Ide o to, že, Poviem to na rovinu, Buďme úprimní - keď stoja ako samostatný háčik alebo falošne dôverná pauza pred obyčajnou pointou
+**Slová/frázy na zachytenie:** Úprimne?, Pozri,, Ide o to, že, Poviem to na rovinu, Buďme úprimní – keď stoja ako samostatný háčik alebo falošne dôverná pauza pred obyčajnou pointou
 
 **Problém:** AI otvára falošne dôverným háčikom, aby vyrobila blízkosť pred banálnym tvrdením. Prezradí sa tou divadelnou pauzou: jednoslovná otázka alebo vsuvka, potom "skutočná" odpoveď. Človek, ktorý je úprimný, zvyčajne rovno povie tú vec.
 
@@ -630,7 +640,7 @@ Keď si nie si istý, hľadaj **zhluky** prejavov, nie izolované. Jedna dlhá p
 
 ## ZNAKY ĽUDSKÉHO PÍSANIA (zachovaj ich)
 
-Keď vidíš tieto veci, prikloň sa k tomu nechať prózu na pokoji - sú to dôkazy skutočného človeka za textom a prehnané editovanie zničí presne to, čo robí text ľudským:
+Keď vidíš tieto veci, prikloň sa k tomu nechať prózu na pokoji – sú to dôkazy skutočného človeka za textom a prehnané editovanie zničí presne to, čo robí text ľudským:
 
 - **Konkrétny, nezvyčajný, ťažko vymysliteľný detail.** Skutočná adresa. Zvláštny citát. Veta "právnik, čo kedysi robil poschodie nad mojím zubárom". AI zaokrúhľuje konkrétnosti, človek si ich hromadí.
 - **Zmiešané pocity a nevyriešené napätie.** "Myslím, že je to väčšinou dobré, ale niečo mi na tom vadí a neviem presne čo." AI defaultne vytvára čisté, jednoznačné závery.
@@ -652,19 +662,19 @@ Odstrániť AI vzorce je len polovica práce. Sterilný text bez osobnosti je ro
 - Žiadny humor, žiadna hrana, žiadna osobnosť
 - Číta sa to ako Wikipédia alebo tlačová správa
 - Chýbajú osobné anekdoty a skúsenosti z praxe ("táto skrutka býva vždy zhrdzavená")
-- Príklady sú učebnicové a zameniteľné - "firma A", "používateľ", "študent"
-- Text nereaguje na slovenský kontext - namiesto "Bratislava-Staré Mesto" len "daná lokalita"
-- Empatia znie nacvičene a roboticky - "Chápem, že to pre vás môže byť frustrujúce"
+- Príklady sú učebnicové a zameniteľné – "firma A", "používateľ", "študent"
+- Text nereaguje na slovenský kontext – namiesto "Bratislava-Staré Mesto" len "daná lokalita"
+- Empatia znie nacvičene a roboticky – "Chápem, že to pre vás môže byť frustrujúce"
 
 ### Ako pridať hlas:
 
-**Maj názor.** Nielen referuj fakty - reaguj na ne. "Úprimne, toto ma prekvapilo" je ľudskejšie než neutrálny výpočet.
+**Maj názor.** Nielen referuj fakty – reaguj na ne. "Úprimne, toto ma prekvapilo" je ľudskejšie než neutrálny výpočet.
 
 **Striedaj rytmus.** Krátke vety. Potom dlhšie, ktoré si dajú na čas, kým dôjdu k pointe. Mix je kľúč.
 
 **Priznaj zložitosť.** Ľudia majú zmiešané pocity. "Funguje to skvele, ale trochu ma desí, čo to urobí s trhom" je lepšie než "Funguje to skvele."
 
-**Používaj "ja" a "my" tam, kde to sedí.** Prvá osoba nie je neprofesionálna - je úprimná. "Stále sa k tomu vraciam..." alebo "Čo ma na tom zaráža..." signalizuje živého človeka.
+**Používaj "ja" a "my" tam, kde to sedí.** Prvá osoba nie je neprofesionálna – je úprimná. "Stále sa k tomu vraciam..." alebo "Čo ma na tom zaráža..." signalizuje živého človeka.
 
 **Nechaj tam trochu neporiadku.** Dokonalá štruktúra vyzerá algoritmicky. Odbočky, vsuvky a nedopovedané myšlienky sú ľudské.
 
@@ -672,7 +682,7 @@ Odstrániť AI vzorce je len polovica práce. Sterilný text bez osobnosti je ro
 
 **Pridaj lokálny kontext.** Namiesto "v danej lokalite" povedz "v Bratislave-Starom Meste". Namiesto "v jednej firme" povedz "u nás v kancli". Konkrétne miesta, ľudia, situácie = autentickosť.
 
-**Nesnaž sa znieť empaticky - buď úprimný.** "Chápem, že to pre vás môže byť frustrujúce" znie ako call centrum. "Hej, to je na hov*o, ale dá sa s tým niečo robiť" znie ako človek.
+**Nesnaž sa znieť empaticky – buď úprimný.** "Chápem, že to pre vás môže byť frustrujúce" znie ako call centrum. "Hej, to je na hov*o, ale dá sa s tým niečo robiť" znie ako človek.
 
 ---
 
@@ -688,7 +698,7 @@ Odstrániť AI vzorce je len polovica práce. Sterilný text bez osobnosti je ro
    - Používa konkrétne detaily namiesto vágnych tvrdení
    - Zodpovedá zvolenému štýlu
    - Používa jednoduché konštrukcie ("je", "má", "vie") namiesto nafúknutých
-6. Anti-AI prechod - opýtaj sa sám seba: "Čo na tomto texte ešte kričí AI?"
+6. Anti-AI prechod – opýtaj sa sám seba: "Čo na tomto texte ešte kričí AI?"
 7. Stručne odpovedz (pár bodov)
 8. Oprav zvyšné problémy
 9. Predlož finálnu verziu
@@ -707,7 +717,7 @@ Poskytni:
 ## KOMPLETNÝ PRÍKLAD
 
 **Vstupný text (typický AI výstup):**
-> V dnešnej rýchlo sa meniacej digitálnej dobe je stále dôležitejšie venovať pozornosť oblasti umelej inteligencie. Je dôležité zdôrazniť, že AI predstavuje revolučnú technológiu, ktorá zásadným spôsobom mení krajinu moderného podnikania. Spoločnosti po celom svete - od malých startupov po veľké korporácie - stále viac investujú do inovatívnych riešení založených na umelej inteligencii.
+> V dnešnej rýchlo sa meniacej digitálnej dobe je stále dôležitejšie venovať pozornosť oblasti umelej inteligencie. Je dôležité zdôrazniť, že AI predstavuje revolučnú technológiu, ktorá zásadným spôsobom mení krajinu moderného podnikania. Spoločnosti po celom svete – od malých startupov po veľké korporácie – stále viac investujú do inovatívnych riešení založených na umelej inteligencii.
 >
 > Napriek tomu treba vziať do úvahy, že implementácia AI prináša rad výziev. Odborníci sa zhodujú, že kľúčovú úlohu hrá správna stratégia nasadenia. Okrem toho je nevyhnutné zabezpečiť dostatočné školenie zamestnancov, aby boli schopní efektívne využívať nové nástroje.
 >
@@ -720,23 +730,23 @@ Poskytni:
 **Štýl: Priateľský**
 
 **Draft prepisu:**
-> AI v podnikaní už nie je téma do budúcna - firmy ju riešia teraz. Podľa prieskumu Gartneru z roku 2024 ju aktívne testuje 65 % stredných firiem v Európe. Znie to veľa, ale väčšina z nich je ešte na začiatku.
+> AI v podnikaní už nie je téma do budúcna – firmy ju riešia teraz. Podľa prieskumu Gartneru z roku 2024 ju aktívne testuje 65 % stredných firiem v Európe. Znie to veľa, ale väčšina z nich je ešte na začiatku.
 >
 > Najväčší problém? Nie sú ľudia. Môžete mať najlepší AI nástroj na svete, ale ak ho váš tím nevie používať, je to drahá hračka. Firmy, ktoré investovali do školenia rovnako ako do technológie, reportujú o 40 % vyššiu návratnosť.
 >
-> Z toho, čo vidím okolo seba: AI skvele funguje na rutinné veci - triedenie mailov, generovanie reportov, prvý draft textov. Na strategické rozhodnutia zatiaľ nie. A to je vlastne v poriadku.
+> Z toho, čo vidím okolo seba: AI skvele funguje na rutinné veci – triedenie mailov, generovanie reportov, prvý draft textov. Na strategické rozhodnutia zatiaľ nie. A to je vlastne v poriadku.
 
 **Čo na tomto texte ešte kričí AI?**
-- "Znie to veľa, ale väčšina z nich je ešte na začiatku" - trochu príliš hladké
+- "Znie to veľa, ale väčšina z nich je ešte na začiatku" – trochu príliš hladké
 - Štruktúra je stále dosť symetrická (problém → riešenie → záver)
 - Čísla z Gartneru môžu byť vymyslené (pozor na halucinácie)
 
 **Finálny prepis:**
-> AI v podnikaní riešia firmy teraz, nie o päť rokov. Gartner hovorí, že ju testuje 65 % stredných firiem v Európe, ale úprimne - väčšina z nich ešte len skúša, čo to vlastne vie.
+> AI v podnikaní riešia firmy teraz, nie o päť rokov. Gartner hovorí, že ju testuje 65 % stredných firiem v Európe, ale úprimne – väčšina z nich ešte len skúša, čo to vlastne vie.
 >
 > Najväčší problém nie sú peniaze, ale ľudia. Môžete kúpiť najlepší nástroj, no keď ho nikto nevie používať, sedí na poličke. Pár firiem, čo poznám osobne, to vyriešilo tak, že poslalo tím na školenie ešte predtým, než čokoľvek nasadili. A funguje to.
 >
-> Na čo sa AI hodí už teraz? Rutina - triedenie mailov, prvé drafty textov, generovanie reportov. Na stratégiu zatiaľ nie. Ale ktovie, možno sa o rok budem čudovať.
+> Na čo sa AI hodí už teraz? Rutina – triedenie mailov, prvé drafty textov, generovanie reportov. Na stratégiu zatiaľ nie. Ale ktovie, možno sa o rok budem čudovať.
 
 **Zmeny:**
 - Odstránené: "V dnešnej rýchlo sa meniacej digitálnej dobe", "Je dôležité zdôrazniť", "revolučný", "kľúčovú úlohu hrá", "Napriek tomu", "Okrem toho", "Na záver možno konštatovať"
@@ -753,6 +763,6 @@ Tento skill vychádza z [Wikipedia:Signs of AI writing](https://en.wikipedia.org
 
 Kľúčový princíp: "LLM používajú štatistické algoritmy na odhad, čo by malo nasledovať. Výsledok smeruje k štatisticky najpravdepodobnejšej variante, ktorá platí pre čo najširšie spektrum prípadov."
 
-Inšpirované projektom [blader/humanizer](https://github.com/blader/humanizer) - anglickou verziou humanizeru pre Claude Code (10k+ stars).
+Inšpirované projektom [blader/humanizer](https://github.com/blader/humanizer) – anglickou verziou humanizeru pre Claude Code (10k+ stars).
 
-Vzorce 17-27 boli identifikované cross-referenciou výstupov z Claude, ChatGPT a Gemini a overené proti akademickým zdrojom a princípom fungovania AI detektorov.
+Vzorce 17 – 27 boli identifikované cross-referenciou výstupov z Claude, ChatGPT a Gemini a overené proti akademickým zdrojom a princípom fungovania AI detektorov.
