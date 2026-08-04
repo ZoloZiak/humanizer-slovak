@@ -424,6 +424,104 @@ Toto sú vzorce špecifické pre AI-generovaný slovenský text. Sú to veci, kt
 > Ponúkame služby na riadenie projektov. Od plánovania po realizáciu.
 
 ---
+
+## SLOVENSKO-ŠPECIFICKÁ KOREKTNOSŤ (vzory 28-34)
+
+Vzory 1-27 riešia štýl - aby text neznel ako AI. Vzory 28-34 riešia niečo iné a pre slovenčinu dôležitejšie: gramatickú správnosť. LLM je natrénovaný prevažne na angličtine a na oveľa väčšom množstve češtiny než slovenčiny. Keď si nie je istý, "podteká" do jedného z týchto jazykov. Výsledok vyzerá skoro správne, ale rodený Slovák to okamžite cíti. Toto čeština nerieši, lebo model má češtiny dosť - slovenčina je pre model slabšie zvládnutý jazyk, a práve tu vznikajú chyby, ktoré žiadny štýlový vzor nezachytí.
+
+### 28. Bohemizmy (české slová a tvary)
+
+**Problém:** Model mieša české slová do slovenského textu, pretože SK a CZ dáta sú v tréningu zliate. Sú to slová, ktoré vyzerajú povedome, ale sú české.
+
+**Slová/frázy na zachytenie:** další (→ ďalší), teď (→ teraz), protože (→ pretože), vlastně (→ vlastne), hodně (→ veľa), spousta (→ množstvo/veľa), nějaký (→ nejaký), letadlo (→ lietadlo), rozhodně (→ určite/rozhodne), zkrátka (→ skrátka), vůbec (→ vôbec), málokdo (→ málokto), pokoj (→ izba/pokoj), obchod (→ obchod/predajňa), jídlo (→ jedlo)
+
+**Pred:**
+> Vlastně je to další problém, protože hodně ľudí nemá vůbec tušenie, nějaký plán chýba.
+
+**Po:**
+> Vlastne je to ďalší problém, pretože veľa ľudí nemá vôbec tušenie, chýba nejaký plán.
+
+---
+
+### 29. Rytmický zákon (krátenie po dlhej slabike)
+
+**Problém:** Slovenčina má pravidlo, ktoré čeština nemá: po dlhej slabike sa dlhá koncovka skracuje. Model natrénovaný viac na češtine sem systematicky pridáva dĺžne, kde nemajú byť. Toto je jeden z najsilnejších znakov, že text písal stroj alebo Čech.
+
+**Slová/frázy na zachytenie:** krásný (→ krásny), múdrý (→ múdry), pekný s dĺžňom na oboch slabikách, prídavné mená a príčastia po dlhej slabike (biely, krásny, múdry - krátke koncové y/i)
+
+**Pred:**
+> Bol to krásný a múdrý človek, chválím jeho piesňí a krídél.
+
+**Po:**
+> Bol to krásny a múdry človek, chválim jeho piesne a krídla.
+
+---
+
+### 30. Vokalizácia predložiek (vo, so, zo, ku)
+
+**Problém:** Pred slovami, ktoré sa začínajú na podobnú alebo ťažko vysloviteľnú spoluhlásku, slovenčina predložku predlžuje: v → vo, s → so, z → zo, k → ku. Angličtina tento jav vôbec nepozná, čeština používa iné samohlásky (ve, se, ze, ke). Model preto buď nechá krátku predložku, alebo napíše český tvar.
+
+**Pred:**
+> Stretol som sa s sestrou v vode a vrátil sa k mne z zeme (alebo česky: ve vodě, se sestrou).
+
+**Po:**
+> Stretol som sa so sestrou vo vode a vrátil sa ku mne zo zeme.
+
+---
+
+### 31. Poradie prízvučných tvarov na druhej pozícii (som, si, sa, mi, ho)
+
+**Problém:** Slovenčina má pevné poradie krátkych tvarov, ktoré stoja hneď na druhom mieste vety, v tomto slede: by - som/si - sa/si - mi/ti/mu - ho/ju. Angličtina (podmet-sloveso-predmet) toto poradie rozbíja a model to prekladá doslovne, takže tvary rozhádže alebo zdvojí.
+
+**Pred:**
+> Ja som sa chcel opýtať sa ho na to. / Chcel by som mu to povedať by som.
+
+**Po:**
+> Chcel som sa ho na to opýtať. / Chcel by som mu to povedať.
+
+---
+
+### 32. Podmieňovací spôsob (by som, aby som, keby som)
+
+**Problém:** Slovenský kondicionál sa tvorí spojením "by" a krátkeho tvaru: by som, by si, aby som, keby som. Čeština má zrastené tvary (bych, abych, kdybych) a model ich často prenesie.
+
+**Slová/frázy na zachytenie:** bych (→ by som), abych (→ aby som), kdybych (→ keby som), bysme/bychom (→ by sme), kdyby som (nesprávne → keby som)
+
+**Pred:**
+> Bych to spravil hneď, abych mal pokoj, a kdybych mohol, začal bych dnes.
+
+**Po:**
+> Spravil by som to hneď, aby som mal pokoj, a keby som mohol, začal by som dnes.
+
+---
+
+### 33. Mäkčene a mäkké ľ (ď, ť, ň, ľ)
+
+**Problém:** Model často vynechá mäkčeň, hlavne pri ľ, alebo mäkkosť naznačí zle. Slovenské ľ (na rozdiel od českého l) je samostatná mäkká spoluhláska a rodený čitateľ jeho absenciu okamžite vidí.
+
+**Slová/frázy na zachytenie:** ludia (→ ľudia), učitel (→ učiteľ), chvíla (→ chvíľa), košela (→ košeľa), daleko (→ ďaleko), tažký (→ ťažký), kôň bez mäkčeňa, nedela (→ nedeľa)
+
+**Pred:**
+> Ti ludia sú daleko, učitel mal tažký den a v nedelu nemal ani chvílu pokoja.
+
+**Po:**
+> Tí ľudia sú ďaleko, učiteľ mal ťažký deň a v nedeľu nemal ani chvíľu pokoja.
+
+---
+
+### 34. Vybrané slová a sústava i/y
+
+**Problém:** Slovenská sústava vybraných slov a pravidiel i/y sa nezhoduje s českou. Model, ktorý mieša české a slovenské pravidlo, píše i/y podľa českého vzoru. Prejaví sa to najmä pri slovách, kde sa SK a CZ pravopis rozchádza.
+
+**Slová/frázy na zachytenie:** byť/biť (rozlíšenie významu), my/mi, vy/vi, tvrdé y po tvrdých spoluhláskach (h, ch, k, g, d, t, n, l) vs. mäkké i, české tvary typu "být", "výborný" s inou distribúciou
+
+**Pred:**
+> Mý sme chtěli byt spolu, ale vi ste bili proti a on chtěl bit ticho.
+
+**Po:**
+> My sme chceli byť spolu, ale vy ste boli proti a on chcel byť ticho.
+
+---
 ## OSOBNOSŤ A DUŠA
 
 Odstrániť AI vzorce je len polovica práce. Sterilný text bez osobnosti je rovnako podozrivý. Dobrý text má za sebou človeka.
@@ -483,3 +581,60 @@ Poskytni:
 1. Zvolený štýl
 2. Draft prepisu
 3. "Čo na tomto texte ešte kričí AI?" (stručné body)
+4. Finálny prepis (po oprave zvyšných problémov)
+5. Zhrnutie zmien (voliteľné, ak to pomôže používateľovi učiť sa)
+
+---
+
+## KOMPLETNÝ PRÍKLAD
+
+**Vstupný text (typický AI výstup):**
+> V dnešnej rýchlo sa meniacej digitálnej dobe je stále dôležitejšie venovať pozornosť oblasti umelej inteligencie. Je dôležité zdôrazniť, že AI predstavuje revolučnú technológiu, ktorá zásadným spôsobom mení krajinu moderného podnikania. Spoločnosti po celom svete - od malých startupov po veľké korporácie - stále viac investujú do inovatívnych riešení založených na umelej inteligencii.
+>
+> Napriek tomu treba vziať do úvahy, že implementácia AI prináša rad výziev. Odborníci sa zhodujú, že kľúčovú úlohu hrá správna stratégia nasadenia. Okrem toho je nevyhnutné zabezpečiť dostatočné školenie zamestnancov, aby boli schopní efektívne využívať nové nástroje.
+>
+> - **Produktivita:** AI nástroje výrazne zvyšujú produktivitu tímov
+> - **Inovácie:** Umožňujú vývoj inovatívnych produktov a služieb
+> - **Efektívnosť:** Automatizácia procesov prináša značné úspory
+>
+> Na záver možno konštatovať, že umelá inteligencia predstavuje kľúčový nástroj pre budúcnosť podnikania. Budúcnosť vyzerá sľubne a spoločnosti, ktoré sa adaptujú, budú mať značnú konkurenčnú výhodu. 🚀
+
+**Štýl: Priateľský**
+
+**Draft prepisu:**
+> AI v podnikaní už nie je téma do budúcna - firmy ju riešia teraz. Podľa prieskumu Gartneru z roku 2024 ju aktívne testuje 65 % stredných firiem v Európe. Znie to veľa, ale väčšina z nich je ešte na začiatku.
+>
+> Najväčší problém? Nie sú ľudia. Môžete mať najlepší AI nástroj na svete, ale ak ho váš tím nevie používať, je to drahá hračka. Firmy, ktoré investovali do školenia rovnako ako do technológie, reportujú o 40 % vyššiu návratnosť.
+>
+> Z toho, čo vidím okolo seba: AI skvele funguje na rutinné veci - triedenie mailov, generovanie reportov, prvý draft textov. Na strategické rozhodnutia zatiaľ nie. A to je vlastne v poriadku.
+
+**Čo na tomto texte ešte kričí AI?**
+- "Znie to veľa, ale väčšina z nich je ešte na začiatku" - trochu príliš hladké
+- Štruktúra je stále dosť symetrická (problém → riešenie → záver)
+- Čísla z Gartneru môžu byť vymyslené (pozor na halucinácie)
+
+**Finálny prepis:**
+> AI v podnikaní riešia firmy teraz, nie o päť rokov. Gartner hovorí, že ju testuje 65 % stredných firiem v Európe, ale úprimne - väčšina z nich ešte len skúša, čo to vlastne vie.
+>
+> Najväčší problém nie sú peniaze, ale ľudia. Môžete kúpiť najlepší nástroj, no keď ho nikto nevie používať, sedí na poličke. Pár firiem, čo poznám osobne, to vyriešilo tak, že poslalo tím na školenie ešte predtým, než čokoľvek nasadili. A funguje to.
+>
+> Na čo sa AI hodí už teraz? Rutina - triedenie mailov, prvé drafty textov, generovanie reportov. Na stratégiu zatiaľ nie. Ale ktovie, možno sa o rok budem čudovať.
+
+**Zmeny:**
+- Odstránené: "V dnešnej rýchlo sa meniacej digitálnej dobe", "Je dôležité zdôrazniť", "revolučný", "kľúčovú úlohu hrá", "Napriek tomu", "Okrem toho", "Na záver možno konštatovať"
+- Odstránené: pravidlo troch (produktivita/inovácie/efektívnosť), formátované zoznamy s emoji
+- Odstránené: falošný rozsah "od startupov po korporácie", generický záver "budúcnosť vyzerá sľubne"
+- Odstránené: vágne "odborníci sa zhodujú", trpný rod, nafúknuté konštrukcie
+- Pridané: konkrétny príklad, osobná perspektíva, prirodzený tón, neformálny obrat "ktovie"
+
+---
+
+## REFERENCIE
+
+Tento skill vychádza z [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) a je rozšírený o vzorce špecifické pre slovenský jazyk.
+
+Kľúčový princíp: "LLM používajú štatistické algoritmy na odhad, čo by malo nasledovať. Výsledok smeruje k štatisticky najpravdepodobnejšej variante, ktorá platí pre čo najširšie spektrum prípadov."
+
+Inšpirované projektom [blader/humanizer](https://github.com/blader/humanizer) - anglickou verziou humanizeru pre Claude Code (10k+ stars).
+
+Vzorce 17-27 boli identifikované cross-referenciou výstupov z Claude, ChatGPT a Gemini a overené proti akademickým zdrojom a princípom fungovania AI detektorov.

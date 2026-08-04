@@ -1,6 +1,6 @@
 # Humanizer Slovak
 
-![Version](https://img.shields.io/badge/version-2.0.0-blue)
+![Version](https://img.shields.io/badge/version-2.1.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ![Slovak Humanizer - Proven results](assets/slovak-humaniser.jpg)
@@ -8,7 +8,7 @@
 
 ## Prepíš slovenský text tak, ako by ho písal človek.
 
-Starostlivo zostavený humanizer skill zameraný špecificky na slovenský jazyk. Deteguje 27 vzorcov typických pre AI-generovanú slovenčinu a prepisuje text tak, aby znel prirodzene a čo najviac ľudsky. 🧑‍🏫
+Starostlivo zostavený humanizer skill zameraný špecificky na slovenský jazyk. Deteguje 34 vzorcov typických pre AI-generovanú slovenčinu - 27 štýlových a 7 slovensko-špecifických gramatických - a prepisuje text tak, aby znel prirodzene a čo najviac ľudsky. 🧑‍🏫
 
 
 ## 4 štýly výstupu
@@ -44,7 +44,9 @@ Je to na prvý pohľad najviditeľnejší znak AI generovaného textu a je úpln
 > AI v podnikaní riešia firmy teraz, nie o päť rokov. Gartner hovorí, že ju testuje 65 % stredných firiem v Európe, ale úprimne - väčšina z nich len skúša, čo to vlastne dokáže.
 
 
-## 27 detegovaných vzorcov
+## 34 detegovaných vzorcov
+
+### 27 štýlových (aby to neznelo ako AI)
 
 | # | Vzorec | Príklad |
 |---|--------|---------|
@@ -75,6 +77,20 @@ Je to na prvý pohľad najviditeľnejší znak AI generovaného textu a je úpln
 | 25 | Copula avoidance | "Predstavuje kľúčový nástroj" namiesto "je" |
 | 26 | Sendvičová štruktúra | Úvod - 3 body - záver vždy |
 | 27 | Tautologické zdvojenia | "rôzne a rozmanité", "efektívne a účinné" |
+
+### 7 slovensko-špecifických (aby to bola správna slovenčina)
+
+Toto je hlavný rozdiel oproti českej verzii. LLM "myslí" po anglicky a má natrénovaného oveľa viac češtiny než slovenčiny, takže keď si nie je istý, podteká do angličtiny (slovosled, kalky) alebo do češtiny (bohemizmy, dĺžne). Tieto vzory to zachytávajú.
+
+| # | Vzor | Príklad |
+|---|------|---------|
+| 28 | Bohemizmy | "další", "teď", "protože" → "ďalší", "teraz", "pretože" |
+| 29 | Rytmický zákon | "krásný", "múdrý" → "krásny", "múdry" (krátenie po dlhej slabike) |
+| 30 | Vokalizácia predložiek | "v vode", "s sestrou" → "vo vode", "so sestrou" |
+| 31 | Poradie prízvučných tvarov | "chcel opýtať sa ho" → "chcel som sa ho opýtať" (som/si/sa/mi/ho) |
+| 32 | Podmieňovací spôsob | "bych", "abych", "kdybych" → "by som", "aby som", "keby som" |
+| 33 | Mäkčene a mäkké ľ | "ludia", "učitel" → "ľudia", "učiteľ" |
+| 34 | Vybrané slová a sústava i/y | "byt spolu", "vi ste" → "byť spolu", "vy ste" |
 
 
 > [!NOTE]
@@ -116,6 +132,8 @@ Potom v Claude Code použi `/humanizer-slovak` nasledované textom na humanizác
 ## Poďakovanie
 
 Toto je slovenská adaptácia projektu [humanizer-czech](https://github.com/bejek/humanizer-czech) od [@bejek](https://github.com/bejek) - plná zásluha za pôvodnú myšlienku, štruktúru a 27 vzorcov patrí jemu. Český projekt vychádza z projektu [humanizer](https://github.com/blader/humanizer) od [@blader](https://github.com/blader) - pôvodnej anglickej verzie s 10k+ hviezdičkami.
+
+Slovenská verzia navyše pridáva 7 slovensko-špecifických gramatických vzorov (28-34), ktoré riešia to, čo čeština riešiť nemusí: LLM je v slovenčine slabšie natrénovaný a podteká do angličtiny alebo češtiny.
 
 Vychádza tiež z [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing).
 

@@ -1,12 +1,13 @@
 ---
 name: humanizer-slovak
-version: 2.0.0
+version: 2.1.0
 description: |
   Odstráň znaky AI-generovaného písania zo slovenského textu. Použi pri editácii alebo
-  revízii textu, aby znel prirodzenejšie a ľudskejšie. Deteguje a opravuje 27 vzorov
-  vrátane: nafúknutého významu, propagačného jazyka, anglického slovosledu, kalkov,
-  nominalizácie, monotónneho rytmu, nadužívania spojok, typických slovenských AI klišé,
-  prehnanej formálnosti, trpného rodu a ďalších znakov strojového textu.
+  revízii textu, aby znel prirodzenejšie a ľudskejšie. Deteguje a opravuje 34 vzorov:
+  27 štýlových (nafúknutý význam, propagačný jazyk, anglický slovosled, kalky,
+  nominalizácia, monotónny rytmus, nadužívanie spojok, AI klišé, trpný rod a ďalšie)
+  plus 7 slovensko-špecifických korektnostných (bohemizmy, rytmický zákon, vokalizácia
+  predložiek, poradie prízvučných tvarov, podmieňovací spôsob, mäkčene, sústava i/y).
   Podporuje 4 štýly výstupu: akademický, formálny, priateľský, konverzačný.
 allowed-tools:
   - Read
@@ -437,6 +438,104 @@ Toto sú vzorce špecifické pre AI-generovaný slovenský text. Sú to veci, kt
 
 **Po:**
 > Ponúkame služby na riadenie projektov. Od plánovania po realizáciu.
+
+---
+
+## SLOVENSKO-ŠPECIFICKÁ KOREKTNOSŤ (vzory 28-34)
+
+Vzory 1-27 riešia štýl - aby text neznel ako AI. Vzory 28-34 riešia niečo iné a pre slovenčinu dôležitejšie: gramatickú správnosť. LLM je natrénovaný prevažne na angličtine a na oveľa väčšom množstve češtiny než slovenčiny. Keď si nie je istý, "podteká" do jedného z týchto jazykov. Výsledok vyzerá skoro správne, ale rodený Slovák to okamžite cíti. Toto čeština nerieši, lebo model má češtiny dosť - slovenčina je pre model slabšie zvládnutý jazyk, a práve tu vznikajú chyby, ktoré žiadny štýlový vzor nezachytí.
+
+### 28. Bohemizmy (české slová a tvary)
+
+**Problém:** Model mieša české slová do slovenského textu, pretože SK a CZ dáta sú v tréningu zliate. Sú to slová, ktoré vyzerajú povedome, ale sú české.
+
+**Slová/frázy na zachytenie:** další (→ ďalší), teď (→ teraz), protože (→ pretože), vlastně (→ vlastne), hodně (→ veľa), spousta (→ množstvo/veľa), nějaký (→ nejaký), letadlo (→ lietadlo), rozhodně (→ určite/rozhodne), zkrátka (→ skrátka), vůbec (→ vôbec), málokdo (→ málokto), pokoj (→ izba/pokoj), obchod (→ obchod/predajňa), jídlo (→ jedlo)
+
+**Pred:**
+> Vlastně je to další problém, protože hodně ľudí nemá vůbec tušenie, nějaký plán chýba.
+
+**Po:**
+> Vlastne je to ďalší problém, pretože veľa ľudí nemá vôbec tušenie, chýba nejaký plán.
+
+---
+
+### 29. Rytmický zákon (krátenie po dlhej slabike)
+
+**Problém:** Slovenčina má pravidlo, ktoré čeština nemá: po dlhej slabike sa dlhá koncovka skracuje. Model natrénovaný viac na češtine sem systematicky pridáva dĺžne, kde nemajú byť. Toto je jeden z najsilnejších znakov, že text písal stroj alebo Čech.
+
+**Slová/frázy na zachytenie:** krásný (→ krásny), múdrý (→ múdry), pekný s dĺžňom na oboch slabikách, prídavné mená a príčastia po dlhej slabike (biely, krásny, múdry - krátke koncové y/i)
+
+**Pred:**
+> Bol to krásný a múdrý človek, chválím jeho piesňí a krídél.
+
+**Po:**
+> Bol to krásny a múdry človek, chválim jeho piesne a krídla.
+
+---
+
+### 30. Vokalizácia predložiek (vo, so, zo, ku)
+
+**Problém:** Pred slovami, ktoré sa začínajú na podobnú alebo ťažko vysloviteľnú spoluhlásku, slovenčina predložku predlžuje: v → vo, s → so, z → zo, k → ku. Angličtina tento jav vôbec nepozná, čeština používa iné samohlásky (ve, se, ze, ke). Model preto buď nechá krátku predložku, alebo napíše český tvar.
+
+**Pred:**
+> Stretol som sa s sestrou v vode a vrátil sa k mne z zeme (alebo česky: ve vodě, se sestrou).
+
+**Po:**
+> Stretol som sa so sestrou vo vode a vrátil sa ku mne zo zeme.
+
+---
+
+### 31. Poradie prízvučných tvarov na druhej pozícii (som, si, sa, mi, ho)
+
+**Problém:** Slovenčina má pevné poradie krátkych tvarov, ktoré stoja hneď na druhom mieste vety, v tomto slede: by - som/si - sa/si - mi/ti/mu - ho/ju. Angličtina (podmet-sloveso-predmet) toto poradie rozbíja a model to prekladá doslovne, takže tvary rozhádže alebo zdvojí.
+
+**Pred:**
+> Ja som sa chcel opýtať sa ho na to. / Chcel by som mu to povedať by som.
+
+**Po:**
+> Chcel som sa ho na to opýtať. / Chcel by som mu to povedať.
+
+---
+
+### 32. Podmieňovací spôsob (by som, aby som, keby som)
+
+**Problém:** Slovenský kondicionál sa tvorí spojením "by" a krátkeho tvaru: by som, by si, aby som, keby som. Čeština má zrastené tvary (bych, abych, kdybych) a model ich často prenesie.
+
+**Slová/frázy na zachytenie:** bych (→ by som), abych (→ aby som), kdybych (→ keby som), bysme/bychom (→ by sme), kdyby som (nesprávne → keby som)
+
+**Pred:**
+> Bych to spravil hneď, abych mal pokoj, a kdybych mohol, začal bych dnes.
+
+**Po:**
+> Spravil by som to hneď, aby som mal pokoj, a keby som mohol, začal by som dnes.
+
+---
+
+### 33. Mäkčene a mäkké ľ (ď, ť, ň, ľ)
+
+**Problém:** Model často vynechá mäkčeň, hlavne pri ľ, alebo mäkkosť naznačí zle. Slovenské ľ (na rozdiel od českého l) je samostatná mäkká spoluhláska a rodený čitateľ jeho absenciu okamžite vidí.
+
+**Slová/frázy na zachytenie:** ludia (→ ľudia), učitel (→ učiteľ), chvíla (→ chvíľa), košela (→ košeľa), daleko (→ ďaleko), tažký (→ ťažký), kôň bez mäkčeňa, nedela (→ nedeľa)
+
+**Pred:**
+> Ti ludia sú daleko, učitel mal tažký den a v nedelu nemal ani chvílu pokoja.
+
+**Po:**
+> Tí ľudia sú ďaleko, učiteľ mal ťažký deň a v nedeľu nemal ani chvíľu pokoja.
+
+---
+
+### 34. Vybrané slová a sústava i/y
+
+**Problém:** Slovenská sústava vybraných slov a pravidiel i/y sa nezhoduje s českou. Model, ktorý mieša české a slovenské pravidlo, píše i/y podľa českého vzoru. Prejaví sa to najmä pri slovách, kde sa SK a CZ pravopis rozchádza.
+
+**Slová/frázy na zachytenie:** byť/biť (rozlíšenie významu), my/mi, vy/vi, tvrdé y po tvrdých spoluhláskach (h, ch, k, g, d, t, n, l) vs. mäkké i, české tvary typu "být", "výborný" s inou distribúciou
+
+**Pred:**
+> Mý sme chtěli byt spolu, ale vi ste bili proti a on chtěl bit ticho.
+
+**Po:**
+> My sme chceli byť spolu, ale vy ste boli proti a on chcel byť ticho.
 
 ---
 ## OSOBNOSŤ A DUŠA
