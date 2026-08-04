@@ -1,13 +1,15 @@
 ---
 name: humanizer-slovak
-version: 2.1.2
+version: 2.2.0
 description: |
   Odstráň znaky AI-generovaného písania zo slovenského textu. Použi pri editácii alebo
-  revízii textu, aby znel prirodzenejšie a ľudskejšie. Deteguje a opravuje 34 vzorov:
+  revízii textu, aby znel prirodzenejšie a ľudskejšie. Deteguje a opravuje 39 vzorov:
   27 štýlových (nafúknutý význam, propagačný jazyk, anglický slovosled, kalky,
-  nominalizácia, monotónny rytmus, nadužívanie spojok, AI klišé, trpný rod a ďalšie)
-  plus 7 slovensko-špecifických korektnostných (bohemizmy, rytmický zákon, vokalizácia
-  predložiek, poradie prízvučných tvarov, podmieňovací spôsob, mäkčene, sústava i/y).
+  nominalizácia, monotónny rytmus, nadužívanie spojok, AI klišé, trpný rod a ďalšie),
+  7 slovensko-špecifických korektnostných (bohemizmy, rytmický zákon, vokalizácia
+  predložiek, poradie prízvučných tvarov, podmieňovací spôsob, mäkčene, sústava i/y)
+  a 5 prevzatých z anglického humanizeru (negatívne paralelizmy, diff-anchored písanie,
+  vyrobené pointy, aforizmové formulky, konverzačné rečnícke otvárače).
   Podporuje 4 štýly výstupu: akademický, formálny, priateľský, konverzačný.
 allowed-tools:
   - Read
@@ -536,6 +538,76 @@ Vzory 1-27 riešia štýl - aby text neznel ako AI. Vzory 28-34 riešia niečo i
 
 **Po:**
 > My sme chceli byť spolu, ale vy ste boli proti a on chcel byť ticho.
+
+---
+
+## ĎALŠIE AI VZORCE (35-39, prevzaté z anglického humanizeru)
+
+Tieto vzory identifikoval [blader/humanizer](https://github.com/blader/humanizer) v novších verziách. Sú univerzálne (nie viazané na jazyk) a platia aj pre slovenčinu.
+
+### 35. Negatívne paralelizmy a useknuté negácie
+
+**Slová/frázy na zachytenie:** Nie je to len o..., je to..., Nielen... ale aj..., Nejde len o..., a chvostové negácie prilepené na koniec vety typu "žiadne hádanie", "žiadny zbytočný pohyb"
+
+**Problém:** AI nadužíva konštrukcie "nielen... ale aj..." a "nie je to len o..., je to...". Rovnako lepí na koniec vety useknuté negácie namiesto poriadnej vety.
+
+**Pred:**
+> Nie je to len o rytme pod vokálom, je to súčasť tej agresie a atmosféry. Nie je to len pieseň, je to vyhlásenie.
+
+**Po:**
+> Ten ťažký beat dotvára agresívny tón skladby.
+
+---
+
+### 36. Písanie ukotvené v zmene (diff-anchored)
+
+**Problém:** Text opisuje zmenu namiesto veci samej - akoby rozprával, čo sa oproti minulému stavu upravilo. Ak dokument nie je zo svojej podstaty viazaný na verziu (changelog, poznámky k vydaniu), má dávať zmysel aj bez toho, aby čitateľ vedel, čo sa naposledy zmenilo.
+
+**Pred:**
+> Táto funkcia bola pridaná, aby nahradila predchádzajúci postup prechádzania všetkých položiek, ktorý spôsoboval kvadratickú zložitosť.
+
+**Po:**
+> Táto funkcia používa hašovaciu mapu na vyhľadávanie v konštantnom čase.
+
+---
+
+### 37. Vyrobené pointy a staccato dráma
+
+**Problém:** AI dáva každej vete dopadnúť ako úderný záver a potom skladá sériu krátkych oznamovacích fragmentov, aby umelo vyrobila drámu. Jedna krátka veta na zdôraznenie je v poriadku, séria za sebou už znie vyrobene.
+
+**Pred:**
+> Potom prišla nová metóda. Nemala rada symetriu. Žiadny estetický predsudok. Žiadna nostalgia za ľudským vkusom. Staré pravidlá padli.
+
+**Po:**
+> Nová metóda zmenila hľadanie, lebo neuprednostňovala symetriu ani ľudsky vyzerajúce riešenia. Časť starých predpokladov tým prestala platiť.
+
+---
+
+### 38. Aforizmové formulky
+
+**Slová/frázy na zachytenie:** X je jazykom Y, X je menou Y, X je architektúrou Y, X sa stáva pascou, X nie je nástroj, ale zrkadlo
+
+**Problém:** AI premieňa obyčajné tvrdenia na znovupoužiteľné aforizmy, ktoré znejú hlboko, ale nepridávajú presnosť. Nahraď formulku konkrétnym tvrdením, ku ktorému smeruje.
+
+**Pred:**
+> Symetria je jazykom dôvery. Efektivita sa stáva pascou, keď tímy zabudnú na ľudskú vrstvu.
+
+**Po:**
+> Symetrické rozloženie pôsobí na používateľov predvídateľnejšie. Tímy vedia procesy preoptimalizovať a minúť sa tomu, ako ich ľudia naozaj používajú.
+
+---
+
+### 39. Konverzačné rečnícke otvárače
+
+**Slová/frázy na zachytenie:** Úprimne?, Pozri,, Ide o to, že, Poviem to na rovinu, Buďme úprimní - keď stoja ako samostatný háčik alebo falošne dôverná pauza pred obyčajnou pointou
+
+**Problém:** AI otvára falošne dôverným háčikom, aby vyrobila blízkosť pred banálnym tvrdením. Prezradí sa tou divadelnou pauzou: jednoslovná otázka alebo vsuvka, potom "skutočná" odpoveď. Človek, ktorý je úprimný, zvyčajne rovno povie tú vec.
+
+**Pred:**
+> Oplatí sa to za tú cenu? Úprimne? Závisí to od toho, ako často to budeš používať.
+
+**Po:**
+> Či sa to oplatí, závisí od toho, ako často to budeš používať.
 
 ---
 ## OSOBNOSŤ A DUŠA

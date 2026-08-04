@@ -1,6 +1,6 @@
 # Humanizer Slovak
 
-![Version](https://img.shields.io/badge/version-2.1.2-blue)
+![Version](https://img.shields.io/badge/version-2.2.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ![Slovak Humanizer - Proven results](assets/slovak-humaniser.jpg)
@@ -44,7 +44,7 @@ Je to na prvý pohľad najviditeľnejší znak AI textu a je úplne všade. Toto
 > AI v podnikaní riešia firmy teraz, nie o päť rokov. Gartner hovorí, že ju testuje 65 % stredných firiem v Európe, ale úprimne - väčšina z nich len skúša, čo to vlastne dokáže.
 
 
-## 34 detegovaných vzorcov
+## 39 detegovaných vzorcov
 
 ### 27 štýlových (aby to neznelo ako AI)
 
@@ -91,6 +91,18 @@ Toto je hlavný rozdiel oproti českej verzii. LLM "myslí" po anglicky a videl 
 | 32 | Podmieňovací spôsob | "bych", "abych", "kdybych" → "by som", "aby som", "keby som" |
 | 33 | Mäkčene a mäkké ľ | "ludia", "učitel" → "ľudia", "učiteľ" |
 | 34 | Vybrané slová a sústava i/y | "byt spolu", "vi ste" → "byť spolu", "vy ste" |
+
+### 5 prevzatých z anglického humanizeru (blader/humanizer)
+
+Univerzálne vzory (nie viazané na jazyk), ktoré identifikoval [blader/humanizer](https://github.com/blader/humanizer) v novších verziách.
+
+| # | Vzor | Príklad |
+|---|------|---------|
+| 35 | Negatívne paralelizmy | "nie je to len o…, je to…", "nielen… ale aj…" |
+| 36 | Diff-anchored písanie | opisuje zmenu namiesto veci samej |
+| 37 | Vyrobené pointy / staccato dráma | séria krátkych fragmentov na umelú drámu |
+| 38 | Aforizmové formulky | "X je jazykom Y", "X sa stáva pascou" |
+| 39 | Konverzačné rečnícke otvárače | "Úprimne?", "Pozri,", "Ide o to, že" |
 
 
 > [!NOTE]
