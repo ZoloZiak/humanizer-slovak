@@ -1,6 +1,6 @@
 ---
 name: humanizer-slovak
-version: 2.1.0
+version: 2.1.1
 description: |
   Odstráň znaky AI-generovaného písania zo slovenského textu. Použi pri editácii alebo
   revízii textu, aby znel prirodzenejšie a ľudskejšie. Deteguje a opravuje 34 vzorov:
@@ -63,7 +63,7 @@ Používateľ si vyberie jeden zo 4 štýlov. Každý štýl ovplyvňuje, ako pr
 
 ### 2. Formálny (profesionálny)
 - Firemná komunikácia, produktové texty, obchodné e-maily
-- Serióznny, ale čitateľný - žiadny úradnícky jazyk
+- Seriózny, ale čitateľný - žiadny úradnícky jazyk
 - Krátke vety, jasná štruktúra, konkrétne fakty
 - Príklad tónu: *"Nová verzia aplikácie skracuje čas spracovania objednávky o 40 %. Zákazníci z pilotného programu potvrdili, že im to reálne šetrí čas."*
 

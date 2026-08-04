@@ -1,6 +1,6 @@
 # Humanizer Slovak
 
-![Version](https://img.shields.io/badge/version-2.1.0-blue)
+![Version](https://img.shields.io/badge/version-2.1.1-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ![Slovak Humanizer - Proven results](assets/slovak-humaniser.jpg)
@@ -80,7 +80,7 @@ Je to na prvý pohľad najviditeľnejší znak AI generovaného textu a je úpln
 
 ### 7 slovensko-špecifických (aby to bola správna slovenčina)
 
-Toto je hlavný rozdiel oproti českej verzii. LLM "myslí" po anglicky a má natrénovaného oveľa viac češtiny než slovenčiny, takže keď si nie je istý, podteká do angličtiny (slovosled, kalky) alebo do češtiny (bohemizmy, dĺžne). Tieto vzory to zachytávajú.
+Toto je hlavný rozdiel oproti českej verzii. LLM "myslí" po anglicky a videl oveľa viac češtiny než slovenčiny, takže keď si nie je istý, podteká do angličtiny (slovosled, kalky) alebo do češtiny (bohemizmy, dĺžne). Tieto vzory to zachytávajú.
 
 | # | Vzor | Príklad |
 |---|------|---------|
