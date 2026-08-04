@@ -765,4 +765,4 @@ Kľúčový princíp: "LLM používajú štatistické algoritmy na odhad, čo by
 
 Inšpirované projektom [blader/humanizer](https://github.com/blader/humanizer) – anglickou verziou humanizeru pre Claude Code (10k+ stars).
 
-Vzorce 17 – 27 boli identifikované cross-referenciou výstupov z Claude, ChatGPT a Gemini a overené proti akademickým zdrojom a princípom fungovania AI detektorov.
+Vzorce 17 – 27 boli podľa autora českej verzie identifikované cross-referenciou výstupov z Claude, ChatGPT a Gemini a overené proti akademickým zdrojom a princípom fungovania AI detektorov.
