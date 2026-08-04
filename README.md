@@ -1,6 +1,6 @@
 # Humanizer Slovak
 
-![Version](https://img.shields.io/badge/version-2.1.1-blue)
+![Version](https://img.shields.io/badge/version-2.1.2-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ![Slovak Humanizer - Proven results](assets/slovak-humaniser.jpg)
@@ -8,7 +8,7 @@
 
 ## Prepíš slovenský text tak, ako by ho písal človek.
 
-Starostlivo zostavený humanizer skill zameraný špecificky na slovenský jazyk. Deteguje 34 vzorcov typických pre AI-generovanú slovenčinu - 27 štýlových a 7 slovensko-špecifických gramatických - a prepisuje text tak, aby znel prirodzene a čo najviac ľudsky. 🧑‍🏫
+Humanizer skill postavený špecificky na slovenčinu. Nájde 34 vzorcov, ktoré prezrádzajú AI-generovaný text - 27 štýlových a 7 gramatických, čo platia len pre slovenčinu - a text prepíše tak, aby znel prirodzene a ľudsky. 🧑‍🏫
 
 
 ## 4 štýly výstupu
@@ -23,7 +23,7 @@ Starostlivo zostavený humanizer skill zameraný špecificky na slovenský jazyk
 
 - **Zakazuje em dash (—)** - nahrádza ho bežnou pomlčkou (-)
 - **Identifikuje slovenské AI klišé** ("V dnešnej dobe", "Je dôležité zdôrazniť", "Na záver možno konštatovať"...)
-- **Deteguje anglický slovosled**, kalky, nominalizáciu a ďalšie slovensko-špecifické vzorce
+- **Deteguje anglický slovosled**, kalky, nominalizáciu a ďalšie vzorce typické pre slovenčinu
 - **Odstraňuje nafúknutý jazyk**, trpný rod, vágne atribúcie
 - **Pridáva osobnosť** a autentický hlas
 - **Dual-pass systém**: prepíše → skontroluje → opraví znova
@@ -31,8 +31,8 @@ Starostlivo zostavený humanizer skill zameraný špecificky na slovenský jazyk
 
 ## Smrť em dashu! 🥳
 
-Poznáte ten dlhý pomlčkový znak **—**, čo je doslova v každom AI texte? Ten, čo žiadny "normálny" Slovák NIKDY v živote nenapíše, pretože na klávesnici jednoducho stlačí pomlčku "-"? Tak ten už vo svojom texte nikdy neuvidíte.<br>
-Je to na prvý pohľad najviditeľnejší znak AI generovaného textu a je úplne všade. Toto je prvý humanizer, ktorý ho rieši natvrdo ako globálne pravidlo.
+Poznáte ten dlhý pomlčkový znak **—**, čo je doslova v každom AI texte? Ten, čo žiadny "normálny" Slovák NIKDY v živote nenapíše, lebo na klávesnici jednoducho stlačí pomlčku "-"? Tak ten už vo svojom texte neuvidíte. <br>
+Je to na prvý pohľad najviditeľnejší znak AI textu a je úplne všade. Toto je prvý humanizer, ktorý ho rieši natvrdo ako globálne pravidlo.
 
 
 ## Príklad
@@ -131,9 +131,9 @@ Potom v Claude Code použi `/humanizer-slovak` nasledované textom na humanizác
 
 ## Poďakovanie
 
-Toto je slovenská adaptácia projektu [humanizer-czech](https://github.com/bejek/humanizer-czech) od [@bejek](https://github.com/bejek) - plná zásluha za pôvodnú myšlienku, štruktúru a 27 vzorcov patrí jemu. Český projekt vychádza z projektu [humanizer](https://github.com/blader/humanizer) od [@blader](https://github.com/blader) - pôvodnej anglickej verzie s 10k+ hviezdičkami.
+Toto je slovenská adaptácia projektu [humanizer-czech](https://github.com/bejek/humanizer-czech) od [@bejek](https://github.com/bejek) - celá zásluha za pôvodnú myšlienku, štruktúru a 27 vzorcov patrí jemu. Český projekt vychádza z projektu [humanizer](https://github.com/blader/humanizer) od [@blader](https://github.com/blader) - pôvodnej anglickej verzie s 10k+ hviezdičkami.
 
-Slovenská verzia navyše pridáva 7 slovensko-špecifických gramatických vzorov (28-34), ktoré riešia to, čo čeština riešiť nemusí: LLM je v slovenčine slabšie natrénovaný a podteká do angličtiny alebo češtiny.
+Slovenská verzia k tomu pridáva 7 gramatických vzorov (28-34), ktoré platia len pre slovenčinu a čeština ich riešiť nemusí: LLM je v slovenčine slabšie natrénovaný a podteká do angličtiny alebo češtiny.
 
 Vychádza tiež z [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing).
 

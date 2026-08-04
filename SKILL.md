@@ -1,6 +1,6 @@
 ---
 name: humanizer-slovak
-version: 2.1.1
+version: 2.1.2
 description: |
   Odstráň znaky AI-generovaného písania zo slovenského textu. Použi pri editácii alebo
   revízii textu, aby znel prirodzenejšie a ľudskejšie. Deteguje a opravuje 34 vzorov:
