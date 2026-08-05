@@ -14,7 +14,7 @@ Tri znaky, ktoré sa nesmú zamieňať:
 |------|-------|-----|----------|---------|
 | - | spojovník | U+002D | zložené slová a mená: slovensko-poľský, Bratislava-Devínska Nová Ves, dva-tri, 3-izbový | bez medzier |
 | – | pomlčka | U+2013 | vetná pomlčka ("text – pokračovanie"), rozpätie (1980 – 1990, Bratislava – Košice), dvojice (Irán – Irak), odčítanie (5 – 3) | s medzerou z oboch strán |
-| — | em dash | U+2014 | v slovenčine sa nepíše | nepoužívať |
+| — | em dash | U+2014 | slovenské pravopisné pravidlá ho nepoznajú, rozlišujú len pomlčku a spojovník | nepoužívať |
 
 Ak vo vstupe stojí spojovník namiesto pomlčky ("text - pokračovanie"), oprav ho na pomlčku (–) alebo vetu prestav.
 
@@ -293,13 +293,13 @@ Toto sú vzorce špecifické pre AI-generovaný slovenský text. Sú to veci, kt
 
 ### 17. Anglický slovosled (porušenie aktuálneho vetného členenia)
 
-**Problém:** V slovenčine dávame novú, dôležitú informáciu (rému) na koniec vety. AI často používa anglický slovosled podmet-prísudok-predmet, čím text znie ako preklad. Toto je jeden z najsilnejších indikátorov AI textu v slovenčine.
+**Problém:** V slovenčine dávame novú, dôležitú informáciu (rému) zvyčajne na koniec vety. AI často preberá anglický slovosled podmet-prísudok-predmet aj tam, kde to ruší nadväznosť viet, takže text znie ako preklad.
 
 **Pred:**
-> Pes pohrýzol muža. Muž bol veľmi nahnevaný. Nová aplikácia vyriešila tento problém.
+> Firma hľadala riešenie dva roky. Nová aplikácia vyriešila tento problém.
 
 **Po:**
-> Toho muža pohrýzol pes. A poriadne ho to nahnevalo. Tento problém vyriešila nová aplikácia.
+> Firma hľadala riešenie dva roky. Problém vyriešila až nová aplikácia.
 
 ---
 
@@ -317,7 +317,7 @@ Toto sú vzorce špecifické pre AI-generovaný slovenský text. Sú to veci, kt
 
 ### 19. Nadužívanie privlastňovacích zámen
 
-**Problém:** AI napcháva "svoj", "jeho", "jej" tam, kde to slovenčina z kontextu chápe sama. Je to anglický odtlačok – v angličtine hovoríte "He closed his eyes", v slovenčine jednoducho "Zavrel oči".
+**Problém:** AI napcháva "svoj", "jeho", "jej" tam, kde to slovenčina z kontextu chápe sama. Je to anglický odtlačok – v angličtine povieš "He closed his eyes", v slovenčine jednoducho "Zavrel oči". Pozor aj na opačnú chybu: ak sa zámeno naozaj vzťahuje na podmet, patrí tam zvratné „svoj“, nie „môj/jeho/jej“ („Firma predstavila svoj nový produkt“, nie „jej nový produkt“).
 
 **Pred:**
 > Otvoril svoje oči a pozrel sa na svoje ruky. Vzal svoj telefón zo svojho stola a skontroloval svoje správy.
@@ -433,7 +433,7 @@ Toto sú vzorce špecifické pre AI-generovaný slovenský text. Sú to veci, kt
 
 ---
 
-## SLOVENSKO-ŠPECIFICKÁ KOREKTNOSŤ (vzory 28 – 34)
+## ŠPECIFICKY SLOVENSKÁ KOREKTNOSŤ (vzory 28 – 34)
 
 Vzory 1 – 27 riešia štýl – aby text neznel ako AI. Vzory 28 – 34 riešia niečo iné a pre slovenčinu dôležitejšie: gramatickú správnosť. LLM je natrénovaný prevažne na angličtine a na oveľa väčšom množstve češtiny než slovenčiny. Keď si nie je istý, "podteká" do jedného z týchto jazykov. Výsledok vyzerá skoro správne, ale rodený Slovák to okamžite cíti. Toto čeština nerieši, lebo model má češtiny dosť – slovenčina je pre model slabšie zvládnutý jazyk, a práve tu vznikajú chyby, ktoré žiadny štýlový vzor nezachytí.
 
@@ -441,13 +441,13 @@ Vzory 1 – 27 riešia štýl – aby text neznel ako AI. Vzory 28 – 34 rieši
 
 **Problém:** Model mieša české slová do slovenského textu, pretože SK a CZ dáta sú v tréningu zliate. Sú to slová, ktoré vyzerajú povedome, ale sú české.
 
-**Slová/frázy na zachytenie:** další (→ ďalší), teď (→ teraz), protože (→ pretože), vlastně (→ vlastne), hodně (→ veľa), spousta (→ množstvo/veľa), nějaký (→ nejaký), letadlo (→ lietadlo), rozhodně (→ určite/rozhodne), zkrátka (→ skrátka), vůbec (→ vôbec), málokdo (→ málokto), pokoj (→ izba/pokoj), obchod (→ obchod/predajňa), jídlo (→ jedlo)
+**Slová/frázy na zachytenie:** další (→ ďalší), teď (→ teraz), protože (→ pretože), vlastně (→ vlastne), hodně (→ veľa), spousta (→ množstvo/veľa), nějaký (→ nejaký), letadlo (→ lietadlo), rozhodně (→ určite/rozhodne), zkrátka (→ skrátka), vůbec (→ vôbec), málokdo (→ málokto), jídlo (→ jedlo), tlačítko (→ tlačidlo), lehátko (→ ležadlo), nosítko (→ nosidlá), kružítko (→ kružidlo), špáratko (→ špáradlo), strúhatko (→ strúhadlo), kľud (→ pokoj), vada (→ chyba/porucha), varianta (→ variant), prádlo (→ bielizeň), pomazánka (→ nátierka), plevel (→ burina), cop (→ vrkoč), krajka (→ čipka), rohlík (→ rožok), botník (→ topánkovník), blbec (→ hlupák), kmín (→ rasca), chytrý telefón/domácnosť (→ inteligentný; o človeku je „chytrý“ v poriadku). Odporúčané náhrady (KSSJ „vhodnejšie“): šedý (→ sivý), snáď (→ azda/možno).
 
 **Pred:**
 > Vlastně je to další problém, protože hodně ľudí nemá vůbec tušenie, nějaký plán chýba.
 
 **Po:**
-> Vlastne je to ďalší problém, pretože veľa ľudí nemá vôbec tušenie, chýba nejaký plán.
+> Vlastne je to ďalší problém, pretože veľa ľudí nemá ani tušenia, chýba nejaký plán.
 
 ---
 
@@ -455,31 +455,31 @@ Vzory 1 – 27 riešia štýl – aby text neznel ako AI. Vzory 28 – 34 rieši
 
 **Problém:** Slovenčina má pravidlo, ktoré čeština nemá: po dlhej slabike sa dlhá koncovka skracuje. Model natrénovaný viac na češtine sem systematicky pridáva dĺžne, kde nemajú byť. Toto je jeden z najsilnejších znakov, že text písal stroj alebo Čech.
 
-**Slová/frázy na zachytenie:** krásný (→ krásny), múdrý (→ múdry), pekný s dĺžňom na oboch slabikách, prídavné mená a príčastia po dlhej slabike (biely, krásny, múdry – krátke koncové y/i)
+**Slová/frázy na zachytenie:** krásný (→ krásny), múdrý (→ múdry), bielý (→ biely), chválím (→ chválim), píšú (→ píšu); po dlhej slabike je prípona krátka
 
 **Pred:**
-> Bol to krásný a múdrý človek, chválím jeho piesňí a krídél.
+> Bol to krásný a múdrý človek, chválím ho a vážím si, čo o ňom píšú.
 
 **Po:**
-> Bol to krásny a múdry človek, chválim jeho piesne a krídla.
+> Bol to krásny a múdry človek, chválim ho a vážim si, čo o ňom píšu.
 
 ---
 
 ### 30. Vokalizácia predložiek (vo, so, zo, ku)
 
-**Problém:** Pred slovami, ktoré sa začínajú na podobnú alebo ťažko vysloviteľnú spoluhlásku, slovenčina predložku predlžuje: v → vo, s → so, z → zo, k → ku. Angličtina tento jav vôbec nepozná, čeština používa iné samohlásky (ve, se, ze, ke). Model preto buď nechá krátku predložku, alebo napíše český tvar.
+**Problém:** Pred slovami, ktoré sa začínajú na podobnú alebo ťažko vysloviteľnú spoluhlásku, slovenčina predložku vokalizuje: v → vo, s → so, z → zo, k → ku. Angličtina tento jav vôbec nepozná, čeština používa iné samohlásky (ve, se, ze, ke). Model preto buď nechá krátku predložku, alebo napíše český tvar.
 
 **Pred:**
-> Stretol som sa s sestrou v vode a vrátil sa k mne z zeme (alebo česky: ve vodě, se sestrou).
+> Išiel som s sestrou k mne domov, v stredu sme boli v vode.
 
 **Po:**
-> Stretol som sa so sestrou vo vode a vrátil sa ku mne zo zeme.
+> Išiel som so sestrou ku mne domov, v stredu sme boli vo vode.
 
 ---
 
-### 31. Poradie prízvučných tvarov na druhej pozícii (som, si, sa, mi, ho)
+### 31. Poradie príkloniek (by, som, si, sa, mi, ho)
 
-**Problém:** Slovenčina má pevné poradie krátkych tvarov, ktoré stoja hneď na druhom mieste vety, v tomto slede: by – som/si – sa/si – mi/ti/mu – ho/ju. Angličtina (podmet-sloveso-predmet) toto poradie rozbíja a model to prekladá doslovne, takže tvary rozhádže alebo zdvojí.
+**Problém:** Slovenčina má pevné poradie krátkych neprízvučných tvarov (príkloniek), ktoré stoja hneď na druhom mieste vety, v tomto slede: by – som/si – sa/si – mi/ti/mu – ho/ju. Angličtina (podmet-sloveso-predmet) toto poradie rozbíja a model to prekladá doslovne, takže tvary rozhádže alebo zdvojí.
 
 **Pred:**
 > Ja som sa chcel opýtať sa ho na to. / Chcel by som mu to povedať by som.
@@ -507,7 +507,7 @@ Vzory 1 – 27 riešia štýl – aby text neznel ako AI. Vzory 28 – 34 rieši
 
 **Problém:** Model často vynechá mäkčeň, hlavne pri ľ, alebo mäkkosť naznačí zle. Slovenské ľ (na rozdiel od českého l) je samostatná mäkká spoluhláska a rodený čitateľ jeho absenciu okamžite vidí.
 
-**Slová/frázy na zachytenie:** ludia (→ ľudia), učitel (→ učiteľ), chvíla (→ chvíľa), košela (→ košeľa), daleko (→ ďaleko), tažký (→ ťažký), kôň bez mäkčeňa, nedela (→ nedeľa)
+**Slová/frázy na zachytenie:** ludia (→ ľudia), učitel (→ učiteľ), chvíla (→ chvíľa), košela (→ košeľa), daleko (→ ďaleko), tažký (→ ťažký), kôn (→ kôň), nedela (→ nedeľa)
 
 **Pred:**
 > Ti ludia sú daleko, učitel mal tažký den a v nedelu nemal ani chvílu pokoja.
@@ -521,13 +521,13 @@ Vzory 1 – 27 riešia štýl – aby text neznel ako AI. Vzory 28 – 34 rieši
 
 **Problém:** Slovenská sústava vybraných slov a pravidiel i/y sa nezhoduje s českou. Model, ktorý mieša české a slovenské pravidlo, píše i/y podľa českého vzoru. Prejaví sa to najmä pri slovách, kde sa SK a CZ pravopis rozchádza.
 
-**Slová/frázy na zachytenie:** byť/biť (rozlíšenie významu), my/mi, vy/vi, tvrdé y po tvrdých spoluhláskach (h, ch, k, g, d, t, n, l) vs. mäkké i, české tvary typu "být", "výborný" s inou distribúciou
+**Slová/frázy na zachytenie:** byť/biť (rozlíšenie významu), my/mi, vy/vi, tvrdé y po tvrdých spoluhláskach (h, ch, k, g, d, t, n, l) vs. mäkké i, slová, v ktorých sa slovenčina a čeština líšia (ríbezle – rybíz, kryštál – krystal)
 
 **Pred:**
-> Mý sme chtěli byt spolu, ale vi ste bili proti a on chtěl bit ticho.
+> Mi sme chceli biť spolu, ale vi ste sa odsťahovali na nové bidlisko.
 
 **Po:**
-> My sme chceli byť spolu, ale vy ste boli proti a on chcel byť ticho.
+> My sme chceli byť spolu, ale vy ste sa odsťahovali na nové bydlisko.
 
 ---
 
@@ -583,7 +583,7 @@ Tieto vzory identifikoval [blader/humanizer](https://github.com/blader/humanizer
 > Symetria je jazykom dôvery. Efektivita sa stáva pascou, keď tímy zabudnú na ľudskú vrstvu.
 
 **Po:**
-> Symetrické rozloženie pôsobí na používateľov predvídateľnejšie. Tímy vedia procesy preoptimalizovať a minúť sa tomu, ako ich ľudia naozaj používajú.
+> Symetrické rozloženie pôsobí na používateľov predvídateľnejšie. Tímy vedia procesy preoptimalizovať a prestať vidieť, ako ich ľudia naozaj používajú.
 
 ---
 
@@ -598,6 +598,110 @@ Tieto vzory identifikoval [blader/humanizer](https://github.com/blader/humanizer
 
 **Po:**
 > Či sa to oplatí, závisí od toho, ako často to budeš používať.
+
+---
+
+## NOVÉ SLOVENSKÉ A TYPOGRAFICKÉ VZORY (40 – 47)
+
+Tieto vzory dopĺňajú slovenskú typografiu, pravopisnú kontrolu a novšie AI frázy overené podľa PSP a KSSJ.
+
+### 40. Anglosaská interpunkcia pri úvodzovkách (aj rovné `" "`)
+
+**Problém:** Model píše rovné úvodzovky `"..."`, alebo preberá anglický zvyk dávať bodku a čiarku vždy dovnútra úvodzoviek. V slovenčine sú úvodzovky „ “ (dolné – horné), vnútorný citát ‚ ‘. Ak je v úvodzovkách celá veta, bodka (otáznik, výkričník) stojí **pred** koncovými úvodzovkami. Ak je v nich len slovo alebo výraz, koncové úvodzovky stoja **pred** bodkou či čiarkou. (Upstream pravidlo „zakrivené úvodzovky → rovné“ sa do slovenčiny nesmie preniesť.)
+
+**Pred:**
+> Nový systém označili za "prelomový." Manažér povedal: "Zmenu spustíme v marci".
+
+**Po:**
+> Nový systém označili za „prelomový“. Manažér povedal: „Zmenu spustíme v marci.“
+
+---
+
+### 41. Zápis čísel, jednotiek, mien a dátumov podľa anglického vzoru
+
+**Problém:** Model prenáša anglický formát: „40%“, „1,250“ (čiarka ako tisícový oddeľovač), „3.5“ (bodka ako desatinná), „€100“, „12/06/2026“, „2000 eúr“ alebo nadbytočné „dňa 12. júna 2026“. Slovensky: značka % sa oddeľuje medzerou („20 %“; prídavné meno „7,5-percentný“), desatinná čiarka („3,5“), čísla nad tri cifry po trojiciach medzerou („12 500 €“; roky bez medzery), genitív množného čísla meny je „eur“ („2000 eur“), dátum „12. 6. 2026“ s medzerami alebo „12. júna 2026“ bez zbytočného „dňa“.
+
+**Pred:**
+> Náklady vzrástli o 40% na €12,500 a webinár sa konal dňa 12/06/2026. Rozpočet je 2000 eúr.
+
+**Po:**
+> Náklady vzrástli o 40 % na 12 500 € a webinár sa konal 12. júna 2026. Rozpočet je 2000 eur.
+
+---
+
+### 42. Vetné chvosty („čo podčiarkuje…“, „čím posilňuje…“, „čo odráža…“)
+
+**Problém:** Veta končí prázdnym dovetkom „, čo podčiarkuje význam…“, „, čím posilňuje pozíciu…“, „, čo odráža rastúci dopyt…“, ktorý pridáva dôležitosť, ale žiadnu informáciu (ekvivalent anglických *-ing* chvostov). Vedľajšia veta s „čo“ je gramaticky správna, zasahuj len v zhluku. Ak má veta niesť dôsledok, nahraď chvost konkrétnym faktom z podkladu – fakty si nevymýšľaj.
+
+**Pred:**
+> Mesto otvorilo nové námestie, čím posilnilo svoju úlohu kultúrneho centra regiónu a zároveň odrazilo rastúci záujem o verejný priestor.
+
+**Po:**
+> Mesto otvorilo nové námestie.
+
+---
+
+### 43. Formulka „Či už ide o X, alebo Y“
+
+**Slová/frázy na zachytenie:** Či už ide o…, alebo…, Či už hľadáte…, alebo…
+
+**Problém:** Šablónovitý úvod. Samostatne je to slabý signál, ale v kombinácii s ďalšími vzormi pôsobí umelo. Ak sa „Či už“ v legitímnej vete ponechá, pred druhým členom dvojitej spojky „či – alebo“ je čiarka.
+
+**Pred:**
+> Či už ide o malé firmy alebo veľké korporácie, digitalizácia mení spôsob práce.
+
+**Po:**
+> Digitalizácia mení prácu vo firmách všetkých veľkostí.
+
+---
+
+### 44. „Pre“ namiesto „na“ pri účele
+
+**Problém:** „Nástroj pre analýzu“, „rozpočet pre rok 2027“ pod vplyvom angličtiny (*for*) a češtiny (*pro*). Na vyjadrenie účelu slovenčina zvyčajne používa predložku **na**; „pre“ patrí k adresátovi („určený pre malé tímy“).
+
+**Pred:**
+> Nástroj pre analýzu zákazníckych dát je určený pre malé tímy. Rozpočet pre rok 2027 schválili v júni.
+
+**Po:**
+> Nástroj na analýzu zákazníckych dát je určený pre malé tímy. Rozpočet na rok 2027 schválili v júni.
+
+---
+
+### 45. Frázové a spoločenské kalky: „adresovať“, „to závisí“, „znie ako“, „Maj pekný deň“
+
+**Problém:** Rozšírenie vzoru 20. Sloveso **adresovať** patrí v slovenčine k adresátovi („adresovať otázku Rade“), nie k problému (*address the issue* → venovať sa, zaoberať sa). Pri ďalších frázach ide o štylisticky príznakové kalky: samotné „To závisí.“ (*it depends* → „Závisí od toho, či…“ / „To sa ešte uvidí“), „Znieš ako…“ v zmysle správaš sa, „Maj pekný deň!“ (*have a nice day* → „Pekný deň!“, „Želám ti pekný deň“).
+
+**Pred:**
+> Oplatí sa to? To závisí. Článok adresuje problém nedostatku lekárov. Maj pekný deň!
+
+**Po:**
+> Oplatí sa to? Závisí od toho, ako často to budete používať. Článok sa zaoberá nedostatkom lekárov. Prajem vám pekný deň.
+
+---
+
+### 46. Konzistentné vykanie/tykanie a veľké „Vy/Váš“
+
+**Problém:** Model v jednom texte mieša tykanie a vykanie, prípadne „vám“ a „Vám“, alebo píše „Vy“ veľkým aj na webe a v návodoch. V priamom písomnom styku (osobný list, osobný e-mail) sa zámená Ty, Vy, Tvoj, Váš píšu s veľkým písmenom; v návodoch, pokynoch, na webe a v reklamných textoch zvyčajne s malým. Zvratné „sa, si, svoj“ a pomocné „ste“ sú vždy s malým („Pošlite nám svoje údaje“). Zvoľ jeden režim podľa kanála a drž ho v celom texte.
+
+**Pred:**
+> Ďakujeme vám za správu. Pošlite nám Vaše údaje a my sa vám ozveme, ak budete potrebovať svoje faktúry.
+
+**Po (osobný list alebo e-mail):**
+> Ďakujeme Vám za správu. Pošlite nám svoje údaje a my sa Vám ozveme, ak budete potrebovať faktúry.
+
+**Po (web, newsletter, návod):** všetko malým („vám“, „svoje“) a jednotne.
+
+---
+
+### 47. Čiarky v súvetí (pravopisná kontrola)
+
+**Problém:** Pri preklade z angličtiny model občas vynechá povinnú slovenskú čiarku – predovšetkým pred spojkovými výrazmi „a preto, a tak, a teda, a predsa, a pritom“, pred druhou časťou dvojitých spojok („či – alebo, buď – alebo, ani – ani“) a pred vedľajšou vetou s „ako/než“ (na rozdiel od nevetného prirovnania „lepšie ako vlani“, kde čiarka nie je). Ide o pravopisnú kontrolu, nie o samostatný dôkaz AI.
+
+**Pred:**
+> Údaje sú neúplné a preto sa záver nedá potvrdiť. Nevedeli sme či mu máme zavolať alebo napísať. Projekt dopadol lepšie ako sme čakali.
+
+**Po:**
+> Údaje sú neúplné, a preto sa záver nedá potvrdiť. Nevedeli sme, či mu máme zavolať, alebo napísať. Projekt dopadol lepšie, ako sme čakali.
 
 ---
 
@@ -739,10 +843,12 @@ Poskytni:
 
 ## REFERENCIE
 
-Tento skill vychádza z [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) a je rozšírený o vzorce špecifické pre slovenský jazyk.
+Tento skill vychádza z [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) a je rozšírený o vzory špecifické pre slovenský jazyk.
+
+Kodifikačné a typografické zdroje: Pravidlá slovenského pravopisu (4. vyd., 2013; textovo overené na PSP 2000, kap. 2.4, 2.7, 2.8, 2.9 a kap. 6), Krátky slovník slovenského jazyka (5. vyd., 2020) a STN 01 6910:2023 (+ O1:2025; nahradila vydanie z r. 2011; českú normu ČSN 01 6910 pre slovenské texty nepoužívať).
 
 Kľúčový princíp: "LLM používajú štatistické algoritmy na odhad, čo by malo nasledovať. Výsledok smeruje k štatisticky najpravdepodobnejšej variante, ktorá platí pre čo najširšie spektrum prípadov."
 
 Inšpirované projektom [blader/humanizer](https://github.com/blader/humanizer) – anglickou verziou humanizeru pre Claude Code (10k+ stars).
 
-Vzorce 17 – 27 boli podľa autora českej verzie identifikované cross-referenciou výstupov z Claude, ChatGPT a Gemini a overené proti akademickým zdrojom a princípom fungovania AI detektorov.
+Vzory 17 – 27 boli podľa autora českej verzie identifikované cross-referenciou výstupov z Claude, ChatGPT a Gemini a overené proti akademickým zdrojom a princípom fungovania AI detektorov.
